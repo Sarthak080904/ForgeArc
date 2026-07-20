@@ -37,6 +37,10 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <div class="hero-grid-pattern" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div class="hero-copy reveal">
       <div class="eyebrow">Enterprise Technology Partner</div>
@@ -48,7 +52,7 @@
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="num"><span class="accent">8</span></div>
+          <div class="num"><span class="accent" data-count="8">0</span></div>
           <div class="label">Core service lines</div>
         </div>
         <div class="hero-stat">
@@ -72,6 +76,30 @@
         <circle class="arc-dot steel" cx="60" cy="340" r="5"/>
         <circle class="arc-dot steel" cx="90" cy="400" r="4"/>
       </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITY MARQUEE ============ -->
+<section style="padding:44px 0; border-bottom:1px solid var(--gray-line);">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="tag">Custom Web Apps</span>
+      <span class="tag">Mobile Apps</span>
+      <span class="tag">AI Automation</span>
+      <span class="tag">UI/UX Design</span>
+      <span class="tag">Cloud Infrastructure</span>
+      <span class="tag">E-commerce</span>
+      <span class="tag">Business Digitalization</span>
+      <span class="tag">Ongoing Support</span>
+      <span class="tag">Custom Web Apps</span>
+      <span class="tag">Mobile Apps</span>
+      <span class="tag">AI Automation</span>
+      <span class="tag">UI/UX Design</span>
+      <span class="tag">Cloud Infrastructure</span>
+      <span class="tag">E-commerce</span>
+      <span class="tag">Business Digitalization</span>
+      <span class="tag">Ongoing Support</span>
     </div>
   </div>
 </section>
@@ -115,43 +143,45 @@
       <h2>End-to-end digital solutions, under one roof.</h2>
       <p>Eight core service lines that take a business from idea to fully automated, digital-first operation.</p>
     </div>
-    <div class="grid grid-4">
-      <div class="card reveal">
+    <div class="bento">
+      <div class="card b-wide reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
         <h3>Website Development</h3>
         <p>Professional, responsive, SEO-friendly websites designed around each business, not a template.</p>
       </div>
-      <div class="card reveal">
+      <div class="card b-wide reveal d1">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
         <h3>Web Applications</h3>
         <p>Custom web apps that automate business processes and remove manual, error-prone workflows.</p>
       </div>
-      <div class="card reveal">
+      <div class="card reveal d1">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
         <h3>Mobile Applications</h3>
-        <p>Android, iOS and cross-platform apps that give businesses a mobile-first digital experience.</p>
+        <p>Android, iOS and cross-platform apps for a mobile-first experience.</p>
       </div>
-      <div class="card reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>AI Integration &amp; Automation</h3>
-        <p>Chatbots, intelligent search, workflow automation and document processing that create real leverage.</p>
-      </div>
-      <div class="card reveal">
+      <div class="card reveal d2">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 5 5 7-11"/></svg></div>
         <h3>UI/UX Design</h3>
-        <p>User-centric interfaces focused on usability, accessibility, and a modern, considered aesthetic.</p>
+        <p>User-centric interfaces focused on usability and a modern, considered aesthetic.</p>
       </div>
-      <div class="card reveal">
+      <div class="card reveal d2">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6-9 6-9-6z"/><path d="M3 9v6l9 6 9-6V9"/></svg></div>
         <h3>Business Digitalization</h3>
-        <p>Helping traditional businesses move to digital-first operations via automation and cloud systems.</p>
+        <p>Moving traditional operations onto automated, cloud-based systems.</p>
       </div>
-      <div class="card reveal">
+      <div class="card b-hero reveal d3">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div>
+          <h3>AI Integration &amp; Automation</h3>
+          <p style="margin-bottom:0;">Chatbots, intelligent search, workflow automation and document processing — implemented only where they create measurable leverage, not novelty.</p>
+        </div>
+      </div>
+      <div class="card b-wide reveal d3">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="7" cy="6" r="1.4" fill="currentColor" stroke="none"/></svg></div>
         <h3>Online Selling Solutions</h3>
         <p>E-commerce platforms and online sales systems that let businesses sell effectively, at any scale.</p>
       </div>
-      <div class="card reveal">
+      <div class="card b-wide reveal d4">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg></div>
         <h3>Maintenance &amp; Support</h3>
         <p>Continuous maintenance, security updates, performance tuning and technical support after launch.</p>
@@ -266,8 +296,12 @@
   </div>
 </section>
 
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C400,90 1040,-10 1440,30 L1440,70 L0,70 Z" fill="#0B1F3A"/></svg>
+</div>
+
 <!-- ============ TARGET MARKET ============ -->
-<section class="section-navy">
+<section class="section-navy" style="padding-top:56px;">
   <div class="container">
     <div class="section-head center reveal">
       <div class="eyebrow" style="justify-content:center;">Who we work with</div>
@@ -308,8 +342,12 @@
   </div>
 </section>
 
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,30 C440,-10 1000,90 1440,20 L1440,0 L0,0 Z" fill="#0B1F3A"/></svg>
+</div>
+
 <!-- ============ CTA ============ -->
-<section>
+<section style="padding-top:56px;">
   <div class="container">
     <div class="cta-band reveal">
       <div class="cta-band-inner">

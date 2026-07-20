@@ -20,15 +20,74 @@
     });
   }
 
-  // Sticky nav background intensifies on scroll (subtle)
+  // Sticky nav: shrinks + deepens on scroll
   var nav = document.querySelector(".nav");
   if (nav) {
     var onScroll = function () {
-      if (window.scrollY > 8) nav.style.boxShadow = "0 8px 24px rgba(3,10,22,0.25)";
-      else nav.style.boxShadow = "none";
+      var scrolled = window.scrollY > 8;
+      nav.classList.toggle("scrolled", scrolled);
+      nav.style.boxShadow = scrolled ? "0 8px 24px rgba(3,10,22,0.25)" : "none";
     };
     document.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+  }
+
+  // Count-up for numeric hero/stat figures marked with data-count
+  var counters = document.querySelectorAll("[data-count]");
+  if (counters.length) {
+    var animateCount = function (el) {
+      var target = parseFloat(el.getAttribute("data-count"));
+      var suffix = el.getAttribute("data-suffix") || "";
+      var duration = 1100;
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var value = Math.round(target * eased);
+        el.textContent = value + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    };
+    if ("IntersectionObserver" in window) {
+      var cio = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              cio.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+      counters.forEach(function (el) { cio.observe(el); });
+    } else {
+      counters.forEach(function (el) { el.textContent = el.getAttribute("data-count") + (el.getAttribute("data-suffix") || ""); });
+    }
+  }
+
+  // Subtle parallax drift for hero orbs, following the cursor (desktop only)
+  var heroOrbs = document.querySelectorAll(".hero-orb");
+  var heroSection = document.querySelector(".hero");
+  if (heroOrbs.length && heroSection && window.matchMedia("(min-width: 900px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroSection.addEventListener("mousemove", function (e) {
+      var rect = heroSection.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      var y = (e.clientY - rect.top) / rect.height - 0.5;
+      heroOrbs.forEach(function (orb, i) {
+        var depth = (i + 1) * 8;
+        orb.style.animationPlayState = "paused";
+        orb.style.transform = "translate(" + (x * depth) + "px, " + (y * depth) + "px)";
+      });
+    });
+    heroSection.addEventListener("mouseleave", function () {
+      heroOrbs.forEach(function (orb) {
+        orb.style.transform = "";
+        orb.style.animationPlayState = "running";
+      });
+    });
   }
 
   // Scroll reveal
