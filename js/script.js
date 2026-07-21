@@ -2,6 +2,19 @@
 (function () {
   "use strict";
 
+  // Mouse-tracking spotlight on hero (desktop only, respects reduced motion)
+  var spotlight = document.querySelector(".hero-spotlight");
+  var heroForSpotlight = document.querySelector(".hero");
+  if (spotlight && heroForSpotlight && window.matchMedia("(min-width: 900px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroForSpotlight.addEventListener("mousemove", function (e) {
+      var rect = heroForSpotlight.getBoundingClientRect();
+      var x = ((e.clientX - rect.left) / rect.width) * 100;
+      var y = ((e.clientY - rect.top) / rect.height) * 100;
+      spotlight.style.setProperty("--sx", x + "%");
+      spotlight.style.setProperty("--sy", y + "%");
+    });
+  }
+
   // Mobile nav toggle
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
@@ -90,8 +103,8 @@
     });
   }
 
-  // Scroll reveal
-  var revealEls = document.querySelectorAll(".reveal");
+  // Scroll reveal (fade-up and scale-in)
+  var revealEls = document.querySelectorAll(".reveal, .scale-in");
   if ("IntersectionObserver" in window && revealEls.length) {
     var io = new IntersectionObserver(
       function (entries) {

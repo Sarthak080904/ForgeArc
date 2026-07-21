@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ForgeArc Technologies | Innovate. Build. Scale.</title>
-<meta name="description" content="ForgeArc Technologies is an enterprise-grade technology partner building custom software, mobile apps, AI automation and digital infrastructure for growing businesses.">
+<meta name="description" content="ForgeArc Technologies is an enterprise-grade IT & AI product studio building custom software, mobile apps, AI automation and digital infrastructure for growing businesses.">
+<meta name="theme-color" content="#0A0F1E">
 <link rel="icon" href="assets/mark.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +15,6 @@
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
 <header class="nav">
   <div class="container">
     <a href="index.html" class="nav-brand">
@@ -24,8 +24,10 @@
     <nav class="nav-links" id="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="services.html">Services</a>
-      <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
       <a href="portfolio.html">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -37,14 +39,16 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <div class="bg-mesh" aria-hidden="true"></div>
   <div class="hero-grid-pattern" aria-hidden="true"></div>
   <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
   <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
   <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
+  <div class="hero-spotlight" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div class="hero-copy reveal">
-      <div class="eyebrow">Enterprise Technology Partner</div>
-      <h1>Technology that moves your <span class="highlight">business</span> forward.</h1>
+      <div class="eyebrow">Bootstrap IT &amp; AI Product Studio</div>
+      <h1>Technology that moves your <span class="text-gradient-ember">business</span> forward.</h1>
       <p style="font-size:1.15rem;max-width:520px;">We design, build and maintain the software, apps and AI automation that let ambitious businesses operate like enterprises — without the enterprise overhead.</p>
       <div class="hero-actions">
         <a href="contact.html" class="btn btn-primary">Start a project</a>
@@ -52,7 +56,7 @@
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="num"><span class="accent" data-count="8">0</span></div>
+          <div class="num"><span class="accent" data-count="6">0</span></div>
           <div class="label">Core service lines</div>
         </div>
         <div class="hero-stat">
@@ -65,7 +69,7 @@
         </div>
       </div>
     </div>
-    <div class="hero-art reveal" aria-hidden="true">
+    <div class="hero-art glass reveal" style="padding:0;" aria-hidden="true">
       <svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg">
         <path class="arc-line orange" d="M60,340 C120,180 220,60 400,70"/>
         <path class="arc-line" d="M40,260 C160,260 260,180 340,60"/>
@@ -81,31 +85,31 @@
 </section>
 
 <!-- ============ CAPABILITY MARQUEE ============ -->
-<section style="padding:44px 0; border-bottom:1px solid var(--gray-line);">
+<section class="section-band" style="padding:44px 0;">
   <div class="marquee">
     <div class="marquee-track">
-      <span class="tag">Custom Web Apps</span>
-      <span class="tag">Mobile Apps</span>
-      <span class="tag">AI Automation</span>
+      <span class="tag">Custom Software</span>
+      <span class="tag">Web &amp; Mobile Apps</span>
+      <span class="tag">AI Integration</span>
+      <span class="tag">Digitalization</span>
+      <span class="tag">E-commerce</span>
       <span class="tag">UI/UX Design</span>
       <span class="tag">Cloud Infrastructure</span>
-      <span class="tag">E-commerce</span>
-      <span class="tag">Business Digitalization</span>
       <span class="tag">Ongoing Support</span>
-      <span class="tag">Custom Web Apps</span>
-      <span class="tag">Mobile Apps</span>
-      <span class="tag">AI Automation</span>
+      <span class="tag">Custom Software</span>
+      <span class="tag">Web &amp; Mobile Apps</span>
+      <span class="tag">AI Integration</span>
+      <span class="tag">Digitalization</span>
+      <span class="tag">E-commerce</span>
       <span class="tag">UI/UX Design</span>
       <span class="tag">Cloud Infrastructure</span>
-      <span class="tag">E-commerce</span>
-      <span class="tag">Business Digitalization</span>
       <span class="tag">Ongoing Support</span>
     </div>
   </div>
 </section>
 
 <!-- ============ WHO WE ARE ============ -->
-<section class="section-alt">
+<section>
   <div class="container split">
     <div class="reveal">
       <div class="eyebrow">Who we are</div>
@@ -114,11 +118,11 @@
       <p>From startups to established enterprises, we partner with organizations to improve efficiency, strengthen their online presence, automate operations, and create seamless digital experiences.</p>
       <a href="about.html" class="btn btn-secondary">Our story</a>
     </div>
-    <div class="reveal">
-      <div class="card" style="padding:0;overflow:hidden;">
-        <div style="background:var(--navy);padding:32px;">
-          <div class="eyebrow" style="color:var(--text-on-navy-muted);">Our promise</div>
-          <h3 style="color:#fff;">Every solution we build is —</h3>
+    <div class="scale-in">
+      <div class="glass" style="padding:0;overflow:hidden;">
+        <div style="padding:32px;border-bottom:1px solid var(--border);">
+          <div class="eyebrow">Our promise</div>
+          <h3>Every solution we build is —</h3>
         </div>
         <div style="padding:28px 32px;">
           <div class="tag-row">
@@ -136,62 +140,55 @@
 </section>
 
 <!-- ============ SERVICES ============ -->
-<section id="services">
+<section class="section-alt" id="services">
   <div class="container">
     <div class="section-head center reveal">
       <div class="eyebrow" style="justify-content:center;">What we do</div>
-      <h2>End-to-end digital solutions, under one roof.</h2>
-      <p>Eight core service lines that take a business from idea to fully automated, digital-first operation.</p>
+      <h2>Six service lines, one accountable studio.</h2>
+      <p>From first pixel to production infrastructure — a business's entire digital footprint, built by one team.</p>
     </div>
     <div class="bento">
       <div class="card b-wide reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
-        <h3>Website Development</h3>
-        <p>Professional, responsive, SEO-friendly websites designed around each business, not a template.</p>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <h3>Custom Software</h3>
+        <p>Web applications and internal tools that automate business processes and remove manual, error-prone workflows.</p>
       </div>
       <div class="card b-wide reveal d1">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
-        <h3>Web Applications</h3>
-        <p>Custom web apps that automate business processes and remove manual, error-prone workflows.</p>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <h3>Web &amp; Mobile Apps</h3>
+        <p>Responsive, SEO-friendly websites and native/cross-platform mobile apps designed around each business.</p>
       </div>
       <div class="card reveal d1">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
-        <h3>Mobile Applications</h3>
-        <p>Android, iOS and cross-platform apps for a mobile-first experience.</p>
-      </div>
-      <div class="card reveal d2">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 5 5 7-11"/></svg></div>
-        <h3>UI/UX Design</h3>
-        <p>User-centric interfaces focused on usability and a modern, considered aesthetic.</p>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>AI Integration</h3>
+        <p>Chatbots, intelligent search, and document automation — implemented for measurable leverage.</p>
       </div>
       <div class="card reveal d2">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6-9 6-9-6z"/><path d="M3 9v6l9 6 9-6V9"/></svg></div>
-        <h3>Business Digitalization</h3>
-        <p>Moving traditional operations onto automated, cloud-based systems.</p>
+        <h3>Digitalization</h3>
+        <p>Moving traditional, paper-based operations onto automated, cloud-based systems.</p>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="7" cy="6" r="1.4" fill="currentColor" stroke="none"/></svg></div>
+        <h3>E-commerce</h3>
+        <p>Storefronts, checkout and fulfilment systems built to convert, not just display.</p>
       </div>
       <div class="card b-hero reveal d3">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 5 5 7-11"/></svg></div>
         <div>
-          <h3>AI Integration &amp; Automation</h3>
-          <p style="margin-bottom:0;">Chatbots, intelligent search, workflow automation and document processing — implemented only where they create measurable leverage, not novelty.</p>
+          <h3>UI/UX Design</h3>
+          <p style="margin-bottom:0;">User-centric interface and experience design focused on usability, accessibility, and a modern, considered aesthetic — reference-grade, not decorative.</p>
         </div>
       </div>
-      <div class="card b-wide reveal d3">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="7" cy="6" r="1.4" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Online Selling Solutions</h3>
-        <p>E-commerce platforms and online sales systems that let businesses sell effectively, at any scale.</p>
-      </div>
-      <div class="card b-wide reveal d4">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <h3>Maintenance &amp; Support</h3>
-        <p>Continuous maintenance, security updates, performance tuning and technical support after launch.</p>
-      </div>
+    </div>
+    <div class="text-center reveal" style="margin-top:40px;">
+      <a href="services.html" class="btn btn-ghost">See full service details</a>
     </div>
   </div>
 </section>
 
 <!-- ============ WHO WE SERVE — stage tabs ============ -->
-<section class="section-alt">
+<section>
   <div class="container">
     <div class="section-head reveal">
       <div class="eyebrow">The problem we solve</div>
@@ -250,7 +247,7 @@
 </section>
 
 <!-- ============ PROCESS ============ -->
-<section>
+<section class="section-alt">
   <div class="container">
     <div class="section-head reveal">
       <div class="eyebrow">How we work</div>
@@ -259,95 +256,49 @@
     <div class="process-list">
       <div class="process-item reveal">
         <div class="process-num">01</div>
-        <div>
-          <h3>Discovery &amp; Requirements</h3>
-          <p>We understand your business, operations and goals before proposing any technology.</p>
-        </div>
+        <div><h3>Discovery &amp; Requirements</h3><p>We understand your business, operations and goals before proposing any technology.</p></div>
       </div>
       <div class="process-item reveal">
         <div class="process-num">02</div>
-        <div>
-          <h3>Solution Design</h3>
-          <p>Architecture, UX and scope are mapped out and agreed before a line of code is written.</p>
-        </div>
+        <div><h3>Solution Design</h3><p>Architecture, UX and scope are mapped out and agreed before a line of code is written.</p></div>
       </div>
       <div class="process-item reveal">
         <div class="process-num">03</div>
-        <div>
-          <h3>Build &amp; Iterate</h3>
-          <p>Development in transparent, reviewable sprints — with you seeing progress, not just promises.</p>
-        </div>
+        <div><h3>Build &amp; Iterate</h3><p>Development in transparent, reviewable sprints — with you seeing progress, not just promises.</p></div>
       </div>
       <div class="process-item reveal">
         <div class="process-num">04</div>
-        <div>
-          <h3>Launch</h3>
-          <p>Quality-assured delivery, deployed to production infrastructure built to your scale.</p>
-        </div>
+        <div><h3>Launch</h3><p>Quality-assured delivery, deployed to production infrastructure built to your scale.</p></div>
       </div>
       <div class="process-item reveal">
         <div class="process-num">05</div>
-        <div>
-          <h3>Maintain &amp; Grow</h3>
-          <p>Ongoing support, monitoring and iteration as your business — and its requirements — evolve.</p>
-        </div>
+        <div><h3>Maintain &amp; Grow</h3><p>Ongoing support, monitoring and iteration as your business — and its requirements — evolve.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C400,90 1040,-10 1440,30 L1440,70 L0,70 Z" fill="#0B1F3A"/></svg>
-</div>
-
-<!-- ============ TARGET MARKET ============ -->
-<section class="section-navy" style="padding-top:56px;">
+<!-- ============ INDUSTRIES TEASER ============ -->
+<section>
   <div class="container">
     <div class="section-head center reveal">
       <div class="eyebrow" style="justify-content:center;">Who we work with</div>
       <h2>Built for the businesses that need a real technology partner.</h2>
     </div>
-    <div class="grid grid-3">
-      <div class="card card-navy reveal">
-        <h3>Primary</h3>
-        <div class="tag-row">
-          <span class="tag on-navy">Startups</span>
-          <span class="tag on-navy">Small Businesses</span>
-          <span class="tag on-navy">Local Businesses</span>
-          <span class="tag on-navy">Educational Institutions</span>
-          <span class="tag on-navy">Healthcare Providers</span>
-        </div>
-      </div>
-      <div class="card card-navy reveal">
-        <h3>Secondary</h3>
-        <div class="tag-row">
-          <span class="tag on-navy">Medium Enterprises</span>
-          <span class="tag on-navy">Manufacturing</span>
-          <span class="tag on-navy">Retail</span>
-          <span class="tag on-navy">Hospitality</span>
-          <span class="tag on-navy">Logistics</span>
-          <span class="tag on-navy">Real Estate</span>
-        </div>
-      </div>
-      <div class="card card-navy reveal">
-        <h3>What's next</h3>
-        <div class="tag-row">
-          <span class="tag on-navy">Government</span>
-          <span class="tag on-navy">Large Enterprises</span>
-          <span class="tag on-navy">International Business</span>
-          <span class="tag on-navy">SaaS Companies</span>
-        </div>
-      </div>
+    <div class="grid grid-4">
+      <div class="card industry-card reveal"><div class="card-icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M14 9h1M9 13h1M14 13h1"/></svg></div><h3>Healthcare</h3></div>
+      <div class="card industry-card reveal d1"><div class="card-icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9L12 5 2 9l10 4 10-4zM6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Education</h3></div>
+      <div class="card industry-card reveal d2"><div class="card-icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v13H3z"/><path d="M8 21h8M12 16v5"/></svg></div><h3>Retail</h3></div>
+      <div class="card industry-card reveal d3"><div class="card-icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="12"/><path d="M16 11h3l2 3v5h-5"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg></div><h3>Logistics</h3></div>
+    </div>
+    <div class="text-center reveal" style="margin-top:36px;">
+      <a href="industries.html" class="btn btn-ghost">See all 12 industries</a>
     </div>
   </div>
 </section>
 
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,30 C440,-10 1000,90 1440,20 L1440,0 L0,0 Z" fill="#0B1F3A"/></svg>
-</div>
-
 <!-- ============ CTA ============ -->
-<section style="padding-top:56px;">
+<section>
   <div class="container">
     <div class="cta-band reveal">
       <div class="cta-band-inner">
@@ -357,14 +308,13 @@
         </div>
         <div class="cta-actions">
           <a href="contact.html" class="btn btn-primary">Start a project</a>
-          <a href="services.html" class="btn btn-ghost-on-navy">See services</a>
+          <a href="pricing.html" class="btn btn-ghost-on-navy">See pricing</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer class="footer" id="site-footer"></footer>
 
 <script src="js/script.js"></script>

@@ -1,24 +1,41 @@
 # ForgeArc Technologies — Website
 
-Static marketing website for **ForgeArc Technologies Pvt. Ltd.**, built around the finalized brand mark and the Midnight Navy / Forge Orange design system.
+Static marketing website for **ForgeArc Technologies Pvt. Ltd.**, built on the "Obsidian Ember" dark design system: near-black navy canvas, ember-orange accent, glassmorphism cards.
 
 ## Structure
 
 ```
-index.html       Home — hero, services overview, who we serve, process, target market, CTA
-services.html    Detailed breakdown of all 8 service lines
+index.html       Home — hero, capability marquee, services (bento), problem/solution tabs, process, industries teaser, CTA
+services.html    Detailed breakdown of all 6 service lines
+industries.html  12 industry sectors as icon cards
+pricing.html     Launch / Scale / Enterprise tiers (Scale featured)
 about.html       Company story, philosophy, mission, vision, values, purpose
-portfolio.html   Methodology + founding-client CTA (pre-launch, no fabricated case studies)
+portfolio.html   Methodology + founding-client launch pipeline (pre-launch, no fabricated case studies)
 contact.html     Contact form (opens mailto — no backend) + direct contact details
-css/style.css    Full design system (tokens, components, layout)
-js/script.js     Nav toggle, scroll reveals, tab switching, contact form handling
+css/style.css    Full design system: tokens, glass cards, mesh gradients, bento grid, marquee, pricing
+js/script.js     Nav shrink-on-scroll, scroll reveals, count-up stats, hero spotlight/parallax, tabs, contact form
 js/footer.js     Shared footer injected on every page so it stays in sync
 assets/          Logo mark (transparent), favicons, original logo file
 ```
 
+## Theme tokens (css/style.css :root)
+
+| Token | Value | Use |
+|---|---|---|
+| `--bg` | `#0A0F1E` | Base canvas |
+| `--surface` / `--surface-2` | `#141B2E` / `#1E2740` | Cards, glass panels |
+| `--ink` | `#0F1B3D` | Brand deep navy accents |
+| `--ember` | `#F2820D` | CTAs, highlights |
+| `--ember-soft` | `#F5A94A` | Gradients, glows |
+| `--fg` | `#F5F7FA` | Body text |
+| `--muted` | `#8A94A6` | Secondary text |
+| `--border` | `rgba(255,255,255,0.08)` | Hairlines |
+
+Headings use Space Grotesk (600–700, -0.02em tracking); body uses Inter.
+
 ## Running locally
 
-No build step — it's plain HTML/CSS/JS. Just open `index.html` in a browser, or serve the folder:
+No build step — plain HTML/CSS/JS. Open `index.html` directly, or serve the folder:
 
 ```bash
 python3 -m http.server 8000
@@ -34,11 +51,12 @@ python3 -m http.server 8000
 
 ## To customize
 
-- **Colors / fonts / spacing** — all defined as CSS variables at the top of `css/style.css`.
+- **Colors / fonts / spacing** — CSS variables at the top of `css/style.css`.
 - **Copy** — every page is plain HTML; edit text directly.
-- **Contact form** — currently opens the visitor's email client via `mailto:`. Replace the submit handler in `js/script.js` with a real form backend (Formspree, Netlify Forms, your own API, etc.) when you're ready to collect submissions server-side.
+- **Pricing tiers** — edit the three `.pricing-card` blocks in `pricing.html`.
+- **Contact form** — currently opens the visitor's email client via `mailto:`. Swap the submit handler in `js/script.js` for a real backend (Formspree, Netlify Forms, your own API) when ready to collect submissions server-side.
 - **Real email/phone** — replace `hello@forgearc.tech` and the placeholder phone number in `js/footer.js` and `contact.html`.
-- **Portfolio** — once you ship your first client project, replace the "Coming soon" block in `portfolio.html` with real case studies following the Problem → Research → Solution → Technology → Screens → Outcome structure already laid out there.
+- **Portfolio** — once you ship a client project, replace the launch-pipeline cards in `portfolio.html` with real case studies following the Problem → Research → Solution → Technology → Screens → Outcome structure already laid out there.
 
 ## Security note
 

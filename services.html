@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services | ForgeArc Technologies</title>
-<meta name="description" content="Custom websites, web and mobile applications, AI integration, UI/UX design, business digitalization, e-commerce and ongoing support — ForgeArc's end-to-end service lines.">
+<meta name="description" content="Custom software, web and mobile apps, AI integration, digitalization, e-commerce and UI/UX design — ForgeArc's six core service lines.">
+<meta name="theme-color" content="#0A0F1E">
 <link rel="icon" href="assets/mark.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,23 +13,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-  .service-block{ padding:64px 0; border-bottom:1px solid var(--gray-line); }
+  .service-block{ padding:64px 0; border-bottom:1px solid var(--border); }
   .service-block:last-of-type{ border-bottom:none; }
-  .service-num{ font-family:var(--font-display); font-size:0.85rem; color:var(--orange); font-weight:600; letter-spacing:.08em; margin-bottom:10px; }
+  .service-num{ font-family:var(--font-display); font-size:0.85rem; color:var(--ember); font-weight:700; letter-spacing:.08em; margin-bottom:10px; }
   .service-layout{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start; }
   .service-layout.rev .service-visual{ order:2; }
   .service-visual{
-    background:var(--gray-light);
-    border:1px solid var(--gray-line);
+    background:var(--surface);
+    border:1px solid var(--border);
     border-radius:var(--radius-lg);
     min-height:260px;
     display:flex; align-items:center; justify-content:center;
     padding:32px;
   }
-  .service-visual svg{ width:100%; max-width:220px; stroke:var(--steel); }
+  .service-visual svg{ width:100%; max-width:220px; stroke:#4F78A7; }
   .service-list{ margin-top:18px; display:flex; flex-direction:column; gap:10px; }
-  .service-list li{ display:flex; gap:10px; font-size:0.95rem; color:var(--text-muted); }
-  .service-list li::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--orange); margin-top:8px; flex:none; }
+  .service-list li{ display:flex; gap:10px; font-size:0.95rem; color:var(--muted); }
+  .service-list li::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--ember); margin-top:8px; flex:none; }
   @media (max-width:900px){ .service-layout, .service-layout.rev{ grid-template-columns:1fr; } .service-layout.rev .service-visual{ order:0; } }
 </style>
 </head>
@@ -43,8 +44,10 @@
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html" class="active">Services</a>
-      <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
       <a href="portfolio.html">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -55,44 +58,23 @@
 </header>
 
 <section class="page-hero">
+  <div class="bg-mesh" aria-hidden="true"></div>
   <div class="container">
     <div class="breadcrumb">Home <span class="accent">/</span> Services</div>
-    <h1>End-to-end digital solutions.</h1>
-    <p>Eight service lines, one accountable partner — from your first website to fully automated operations.</p>
+    <h1>Six service lines. One accountable partner.</h1>
+    <p>Everything a growing business needs to establish, modernize and scale its digital footprint.</p>
   </div>
 </section>
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,30 C440,-10 1000,90 1440,20 L1440,0 L0,0 Z" fill="#0B1F3A"/></svg>
-</div>
 
 <section style="padding-bottom:0;">
   <div class="container">
 
-    <div class="service-block" id="web">
+    <div class="service-block" id="custom-software">
       <div class="service-layout">
         <div>
-          <div class="service-num">01 · Custom Website Development</div>
-          <h2>A website built around your business, not a theme.</h2>
-          <p>Professional, responsive and SEO-friendly websites, designed specifically for what your business actually needs to communicate and sell.</p>
-          <ul class="service-list">
-            <li>Custom design — no generic templates</li>
-            <li>Mobile-first, fast-loading builds</li>
-            <li>SEO foundations from day one</li>
-            <li>Content and CMS options for your team</li>
-          </ul>
-        </div>
-        <div class="service-visual" aria-hidden="true">
-          <svg viewBox="0 0 100 90" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="90" height="80" rx="6"/><path d="M5 24h90"/><circle cx="14" cy="14" r="2"/><circle cx="22" cy="14" r="2"/><path d="M18 40h50M18 52h64M18 64h40"/></svg>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-block" id="apps">
-      <div class="service-layout rev">
-        <div>
-          <div class="service-num">02 · Web Application Development</div>
+          <div class="service-num">01 · Custom Software</div>
           <h2>Applications that replace the spreadsheet.</h2>
-          <p>Custom web applications that automate business processes — internal tools, client portals, dashboards, and workflow systems built to remove manual work.</p>
+          <p>Custom web applications and internal tools that automate business processes — dashboards, portals and workflow systems built to remove manual, error-prone work.</p>
           <ul class="service-list">
             <li>Internal tools and admin dashboards</li>
             <li>Client and partner portals</li>
@@ -106,29 +88,29 @@
       </div>
     </div>
 
-    <div class="service-block" id="apps2">
-      <div class="service-layout">
+    <div class="service-block" id="apps">
+      <div class="service-layout rev">
         <div>
-          <div class="service-num">03 · Mobile Application Development</div>
-          <h2>Mobile-first experiences, wherever your customers are.</h2>
-          <p>Android, iOS, and cross-platform applications that give your business a native, mobile-first presence — not a shrunken website.</p>
+          <div class="service-num">02 · Web &amp; Mobile Apps</div>
+          <h2>A digital presence built around your business, not a theme.</h2>
+          <p>Professional, responsive, SEO-friendly websites, plus Android, iOS, and cross-platform mobile applications — a consistent, mobile-first presence wherever your customers are.</p>
           <ul class="service-list">
-            <li>Native and cross-platform builds</li>
-            <li>Offline-friendly, performance-tuned</li>
-            <li>Push notifications and engagement flows</li>
+            <li>Custom design — no generic templates</li>
+            <li>Native and cross-platform mobile builds</li>
+            <li>Fast-loading, SEO foundations from day one</li>
             <li>App store submission and release management</li>
           </ul>
         </div>
         <div class="service-visual" aria-hidden="true">
-          <svg viewBox="0 0 100 90" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="4" width="40" height="82" rx="8"/><path d="M42 76h16"/><path d="M40 20h20M40 30h20M40 40h12"/></svg>
+          <svg viewBox="0 0 100 90" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="60" height="80" rx="6"/><path d="M5 24h60"/><rect x="72" y="16" width="20" height="58" rx="6"/><path d="M18 42h34M18 54h34M18 66h20"/></svg>
         </div>
       </div>
     </div>
 
     <div class="service-block" id="ai">
-      <div class="service-layout rev">
+      <div class="service-layout">
         <div>
-          <div class="service-num">04 · AI Integration &amp; Automation</div>
+          <div class="service-num">03 · AI Integration</div>
           <h2>AI where it creates real leverage — not novelty.</h2>
           <p>Chatbots, intelligent search, document processing, and workflow automation, implemented where they measurably reduce cost or effort.</p>
           <ul class="service-list">
@@ -144,29 +126,10 @@
       </div>
     </div>
 
-    <div class="service-block" id="uiux">
-      <div class="service-layout">
-        <div>
-          <div class="service-num">05 · UI/UX Design</div>
-          <h2>Interfaces designed around what people actually do.</h2>
-          <p>User-centric interface and experience design, focused on usability, accessibility, and a modern, considered aesthetic — not decoration.</p>
-          <ul class="service-list">
-            <li>User research and journey mapping</li>
-            <li>Wireframes, prototypes, design systems</li>
-            <li>Accessibility built in from the start</li>
-            <li>Handoff-ready specs for development</li>
-          </ul>
-        </div>
-        <div class="service-visual" aria-hidden="true">
-          <svg viewBox="0 0 100 90" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="38" height="62" rx="4"/><rect x="54" y="14" width="38" height="28" rx="4"/><rect x="54" y="48" width="38" height="28" rx="4"/></svg>
-        </div>
-      </div>
-    </div>
-
     <div class="service-block" id="digitalization">
       <div class="service-layout rev">
         <div>
-          <div class="service-num">06 · Business Digitalization</div>
+          <div class="service-num">04 · Digitalization</div>
           <h2>Moving traditional operations onto digital rails.</h2>
           <p>Helping businesses transition from paper and spreadsheets into digital-first organizations through automation, management systems, and cloud infrastructure.</p>
           <ul class="service-list">
@@ -185,8 +148,8 @@
     <div class="service-block" id="ecommerce">
       <div class="service-layout">
         <div>
-          <div class="service-num">07 · Online Selling Solutions</div>
-          <h2>E-commerce that's built to actually convert.</h2>
+          <div class="service-num">05 · E-commerce</div>
+          <h2>Online selling that's built to actually convert.</h2>
           <p>Full e-commerce platforms and online sales systems — catalog, checkout, payments and fulfilment — built to sell, not just to display products.</p>
           <ul class="service-list">
             <li>Custom storefronts and product catalogs</li>
@@ -201,21 +164,21 @@
       </div>
     </div>
 
-    <div class="service-block" id="support">
+    <div class="service-block" id="uiux">
       <div class="service-layout rev">
         <div>
-          <div class="service-num">08 · Website Maintenance &amp; Support</div>
-          <h2>What happens after launch is what earns trust.</h2>
-          <p>Continuous maintenance, security updates, performance optimization, and technical support — so the product keeps working as your business grows.</p>
+          <div class="service-num">06 · UI/UX Design</div>
+          <h2>Interfaces designed around what people actually do.</h2>
+          <p>User-centric interface and experience design, focused on usability, accessibility, and a modern, considered aesthetic — not decoration.</p>
           <ul class="service-list">
-            <li>Security patching and monitoring</li>
-            <li>Performance and uptime optimization</li>
-            <li>Content updates and small feature requests</li>
-            <li>Defined SLAs, not best-effort promises</li>
+            <li>User research and journey mapping</li>
+            <li>Wireframes, prototypes, design systems</li>
+            <li>Accessibility built in from the start</li>
+            <li>Handoff-ready specs for development</li>
           </ul>
         </div>
         <div class="service-visual" aria-hidden="true">
-          <svg viewBox="0 0 100 90" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M50 12l30 10v18c0 20-13 30-30 38-17-8-30-18-30-38V22z"/><path d="M40 46l7 7 14-14"/></svg>
+          <svg viewBox="0 0 100 90" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="38" height="62" rx="4"/><rect x="54" y="14" width="38" height="28" rx="4"/><rect x="54" y="48" width="38" height="28" rx="4"/></svg>
         </div>
       </div>
     </div>
@@ -223,16 +186,16 @@
   </div>
 </section>
 
-<section class="section-navy">
+<section class="section-alt">
   <div class="container">
     <div class="section-head center reveal">
       <div class="eyebrow" style="justify-content:center;">Why ForgeArc</div>
       <h2>We aim to be a long-term technology partner, not a one-off vendor.</h2>
     </div>
     <div class="grid grid-3">
-      <div class="card card-navy reveal"><h3>Business-first</h3><p>We start by understanding your operations and goals — technology comes second.</p></div>
-      <div class="card card-navy reveal"><h3>Built to scale</h3><p>Every solution is architected so it doesn't need a rebuild the moment you grow.</p></div>
-      <div class="card card-navy reveal"><h3>Ongoing support</h3><p>We stay accountable after launch, with maintenance and support built into the relationship.</p></div>
+      <div class="card reveal"><h3>Business-first</h3><p>We start by understanding your operations and goals — technology comes second.</p></div>
+      <div class="card reveal d1"><h3>Built to scale</h3><p>Every solution is architected so it doesn't need a rebuild the moment you grow.</p></div>
+      <div class="card reveal d2"><h3>Ongoing support</h3><p>We stay accountable after launch, with maintenance and support built into the relationship.</p></div>
     </div>
   </div>
 </section>

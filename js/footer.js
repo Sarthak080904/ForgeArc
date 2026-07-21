@@ -21,17 +21,17 @@
           '<ul>' +
             '<li><a href="about.html">About us</a></li>' +
             '<li><a href="about.html#mission">Mission &amp; vision</a></li>' +
+            '<li><a href="industries.html">Industries</a></li>' +
             '<li><a href="portfolio.html">Portfolio</a></li>' +
-            '<li><a href="contact.html">Contact</a></li>' +
           '</ul>' +
         '</div>' +
         '<div>' +
           '<h4>Services</h4>' +
           '<ul>' +
-            '<li><a href="services.html#web">Website Development</a></li>' +
+            '<li><a href="services.html#custom-software">Custom Software</a></li>' +
             '<li><a href="services.html#apps">Web &amp; Mobile Apps</a></li>' +
             '<li><a href="services.html#ai">AI Integration</a></li>' +
-            '<li><a href="services.html#ecommerce">Online Selling</a></li>' +
+            '<li><a href="pricing.html">Pricing</a></li>' +
           '</ul>' +
         '</div>' +
         '<div>' +
