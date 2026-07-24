@@ -200,7 +200,7 @@
 
       status.textContent = "Opening your email client to send this to ForgeArc…";
       status.className = "form-status show ok";
-      window.location.href = "mailto:hello@forgearc.tech?subject=" + subject + "&body=" + body;
+      window.location.href = "mailto:contact@forgearc.co.in?subject=" + subject + "&body=" + body;
     });
   }
 
