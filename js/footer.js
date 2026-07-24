@@ -8,7 +8,11 @@
     '<div class="container">' +
       '<div class="footer-grid">' +
         '<div>' +
-          '<div class="footer-brand"><img src="assets/mark.png" alt="ForgeArc Technologies mark" loading="lazy"><span>ForgeArc Technologies</span></div>' +
+          '<div class="footer-brand">' +
+            '<img class="icon-img" src="assets/mark.png" alt="" loading="lazy">' +
+            '<img class="word-img" src="assets/wordmark.png" alt="ForgeArc Technologies" loading="lazy">' +
+            '<img class="sub-img" src="assets/subtitle.png" alt="Pvt. Ltd." loading="lazy">' +
+          '</div>' +
           '<p style="max-width:280px;">Technology that moves business forward. Custom software, apps and AI automation for growing businesses.</p>' +
           '<div class="footer-social" aria-label="Social links">' +
             '<a href="#" aria-label="LinkedIn">LinkedIn</a>' +
