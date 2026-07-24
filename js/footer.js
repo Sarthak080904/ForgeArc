@@ -41,9 +41,9 @@
         '<div>' +
           '<h4>Contact</h4>' +
           '<ul>' +
-            '<li><a href="mailto:hello@forgearc.tech">hello@forgearc.tech</a></li>' +
-            '<li><a href="tel:+910000000000">+91 00000 00000</a></li>' +
-            '<li>Pune, Maharashtra</li>' +
+            '<li><a href="mailto:contact@forgearc.co.in">contact@forgearc.co.in</a></li>' +
+            '<li><a href="tel:+919860606140">+91 98606 06140</a></li>' +
+            '<li>Sanaswadi, Pune - 412208, Maharashtra</li>' +
           '</ul>' +
         '</div>' +
       '</div>' +
