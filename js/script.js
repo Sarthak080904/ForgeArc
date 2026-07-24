@@ -45,6 +45,24 @@
     onScroll();
   }
 
+  // Clickable industry cards route visitors into a contextual enquiry.
+  document.querySelectorAll(".industry-card[data-href]").forEach(function (card) {
+    var href = card.getAttribute("data-href");
+    if (!href) return;
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "link");
+    card.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;
+      window.location.href = href;
+    });
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        window.location.href = href;
+      }
+    });
+  });
+
   // Count-up for numeric hero/stat figures marked with data-count
   var counters = document.querySelectorAll("[data-count]");
   if (counters.length) {
@@ -140,6 +158,20 @@
   // Contact form — static site, no backend: confirm + mailto handoff
   var form = document.getElementById("contact-form");
   if (form) {
+    var params = new URLSearchParams(window.location.search);
+    var industry = (params.get("industry") || "").trim();
+    var messageField = document.getElementById("message");
+    if (industry && messageField && !messageField.value) {
+      messageField.value =
+        "Hi ForgeArc,\n\n" +
+        "I am exploring a " + industry + " project for a Pune-based business.\n\n" +
+        "Business location / area in Pune:\n" +
+        "Current challenge:\n" +
+        "What we want to build:\n" +
+        "Timeline:\n\n" +
+        "Please suggest the next steps.";
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var status = document.getElementById("form-status");
@@ -154,12 +186,15 @@
         return;
       }
 
-      var subject = encodeURIComponent("New enquiry from " + name + " — ForgeArc website");
+      var subjectLine = "New Pune enquiry from " + name;
+      if (industry) subjectLine += " - " + industry;
+      var subject = encodeURIComponent(subjectLine + " — ForgeArc website");
       var body = encodeURIComponent(
         "Name: " + name +
         "\nEmail: " + email +
         "\nCompany: " + (data.get("company") || "-") +
         "\nBudget: " + (data.get("budget") || "-") +
+        "\nIndustry: " + (industry || "-") +
         "\n\nMessage:\n" + message
       );
 

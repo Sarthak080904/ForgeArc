@@ -13,7 +13,7 @@
             '<img class="word-img" src="assets/wordmark.png" alt="ForgeArc Technologies" loading="lazy">' +
             '<img class="sub-img" src="assets/subtitle.png" alt="Pvt. Ltd." loading="lazy">' +
           '</div>' +
-          '<p style="max-width:280px;">Technology that moves business forward. Custom software, apps and AI automation for growing businesses.</p>' +
+          '<p style="max-width:280px;">Technology that moves Pune businesses forward. Custom software, apps and AI automation for growing teams.</p>' +
           '<div class="footer-social" aria-label="Social links">' +
             '<a href="#" aria-label="LinkedIn">LinkedIn</a>' +
             '<a href="#" aria-label="GitHub">GitHub</a>' +
@@ -43,7 +43,7 @@
           '<ul>' +
             '<li><a href="mailto:hello@forgearc.tech">hello@forgearc.tech</a></li>' +
             '<li><a href="tel:+910000000000">+91 00000 00000</a></li>' +
-            '<li>India</li>' +
+            '<li>Pune, Maharashtra</li>' +
           '</ul>' +
         '</div>' +
       '</div>' +
