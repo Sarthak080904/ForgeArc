@@ -604,11 +604,60 @@ section{ padding:100px 0; position:relative; }
 .value-card .row h3{ margin-bottom:0; }
 .value-card .idx{ font-family:var(--font-display); color:var(--ember); font-weight:700; }
 
-/* ---------------- Industry icon cards ---------------- */
-.industry-card{ text-align:center; padding:28px 20px; }
-.industry-card .card-icon{ margin:0 auto 16px; }
-.industry-card h3{ font-size:1.05rem; margin-bottom:6px; }
-.industry-card p{ font-size:0.85rem; margin-bottom:0; }
+/* ---------------- Industry menu cards ---------------- */
+.industry-menu{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:24px;
+}
+.industry-card{
+  min-height:332px;
+  padding:30px;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.industry-card .card-icon{
+  width:44px;
+  height:44px;
+  margin:0 0 24px;
+}
+.industry-card h3{
+  font-size:1.02rem;
+  margin-bottom:12px;
+}
+.industry-card p{
+  font-size:0.9rem;
+  line-height:1.65;
+  margin-bottom:20px;
+}
+.industry-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:auto;
+}
+.industry-tags span{
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  padding:4px 11px;
+  border:1px solid rgba(242,130,13,0.55);
+  border-radius:999px;
+  background:rgba(242,130,13,0.10);
+  color:var(--ember-soft);
+  font-size:0.72rem;
+  font-weight:600;
+  line-height:1.2;
+}
+@media (max-width:980px){
+  .industry-menu{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width:640px){
+  .industry-menu{ grid-template-columns:1fr; }
+  .industry-card{ min-height:auto; padding:28px 24px; }
+}
 
 /* ---------------- Pricing ---------------- */
 .pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; align-items:stretch; }
