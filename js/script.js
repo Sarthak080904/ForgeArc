@@ -170,20 +170,33 @@
   }
 
   // Contact form — static site, no backend: confirm + mailto handoff
+  // Enterprise Contact & Architectural Briefing Form
   var form = document.getElementById("contact-form");
   if (form) {
     var params = new URLSearchParams(window.location.search);
     var industry = (params.get("industry") || "").trim();
     var messageField = document.getElementById("message");
-    if (industry && messageField && !messageField.value) {
-      messageField.value =
-        "Hi ForgeArc,\n\n" +
-        "I am exploring a " + industry + " project for a Pune-based business.\n\n" +
-        "Business location / area in Pune:\n" +
-        "Current challenge:\n" +
-        "What we want to build:\n" +
-        "Timeline:\n\n" +
-        "Please suggest the next steps.";
+    var practiceSelect = document.getElementById("practice");
+
+    if (industry) {
+      if (messageField && !messageField.value) {
+        messageField.value =
+          "Hello ForgeArc Architecture Team,\n\n" +
+          "We are exploring an enterprise initiative within the " + industry + " domain.\n\n" +
+          "Current Architectural Landscape:\n" +
+          "Key Technical Bottlenecks / Modernization Goals:\n" +
+          "Scale & Latency Target (e.g. req/sec, p99 target):\n" +
+          "Target Timeline & Delivery Milestones:\n\n" +
+          "We would like to request an introductory architecture review session.";
+      }
+      if (practiceSelect && !practiceSelect.value) {
+        for (var i = 0; i < practiceSelect.options.length; i++) {
+          if (practiceSelect.options[i].text.toLowerCase().indexOf(industry.toLowerCase()) !== -1) {
+            practiceSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
     }
 
     form.addEventListener("submit", function (e) {
@@ -192,29 +205,39 @@
       var data = new FormData(form);
       var name = (data.get("name") || "").toString().trim();
       var email = (data.get("email") || "").toString().trim();
+      var company = (data.get("company") || "").toString().trim();
+      var practice = (data.get("practice") || industry || "General Architecture").toString().trim();
+      var model = (data.get("engagement_model") || "Standard Pod").toString().trim();
+      var budget = (data.get("budget") || "To be scoped").toString().trim();
       var message = (data.get("message") || "").toString().trim();
 
       if (!name || !email || !message) {
-        status.textContent = "Please fill in your name, email, and message.";
+        status.textContent = "Please provide your name, corporate email, and project scope.";
         status.className = "form-status show err";
         return;
       }
 
-      var subjectLine = "New Pune enquiry from " + name;
-      if (industry) subjectLine += " - " + industry;
-      var subject = encodeURIComponent(subjectLine + " — ForgeArc website");
+      var subjectLine = "Enterprise Architectural Briefing: " + (company ? company + " — " : "") + name + " [" + practice + "]";
+      var subject = encodeURIComponent(subjectLine);
       var body = encodeURIComponent(
-        "Name: " + name +
-        "\nEmail: " + email +
-        "\nCompany: " + (data.get("company") || "-") +
-        "\nBudget: " + (data.get("budget") || "-") +
-        "\nIndustry: " + (industry || "-") +
-        "\n\nMessage:\n" + message
+        "EXECUTIVE BRIEFING REQUEST — FORGEARC TECHNOLOGIES\n" +
+        "====================================================\n\n" +
+        "Lead Name: " + name + "\n" +
+        "Work Email: " + email + "\n" +
+        "Organization: " + (company || "Confidential") + "\n" +
+        "Practice Domain: " + practice + "\n" +
+        "Engagement Model: " + model + "\n" +
+        "Scope / Budget: " + budget + "\n\n" +
+        "ARCHITECTURAL OBJECTIVE & SCOPE:\n" +
+        "----------------------------------------------------\n" +
+        message + "\n\n" +
+        "====================================================\n" +
+        "Sent via ForgeArc Enterprise Gateway"
       );
 
-      status.textContent = "Opening your email client to send this to ForgeArc…";
+      status.textContent = "Launching secure email client to deliver briefing request…";
       status.className = "form-status show ok";
-      window.location.href = "mailto:contact@forgearc.co.in?subject=" + subject + "&body=" + body;
+      window.location.href = "mailto:enterprise@forgearc.co.in?cc=contact@forgearc.co.in&subject=" + subject + "&body=" + body;
     });
   }
 
@@ -299,5 +322,196 @@
         colorSchemeQuery.addListener(onSystemThemeChange);
       }
     }
+  }
+
+  // ==========================================================================
+  // Enterprise Command Palette (Cmd+K / Ctrl+K)
+  // ==========================================================================
+  var searchIndex = [
+    { title: "Enterprise Cloud Platforms", group: "Practices", desc: "Distributed architectures, microservices & multi-cloud", url: "services.html#custom-software" },
+    { title: "Applied AI & Autonomous Agents", group: "Practices", desc: "LLMOps, RAG pipelines, fine-tuned models & workflow intelligence", url: "services.html#ai" },
+    { title: "Web & Native Mobile Platforms", group: "Practices", desc: "High-concurrency React, iOS & Android platforms", url: "services.html#apps" },
+    { title: "Legacy Core Modernization", group: "Practices", desc: "Monolith-to-cloud migration, DevSecOps & SRE governance", url: "services.html#digitalization" },
+    { title: "High-Throughput Commerce", group: "Practices", desc: "Global multi-currency checkout & headless storefronts", url: "services.html#ecommerce" },
+    { title: "Banking, Financial Services & Insurance (BFSI)", group: "Industries", desc: "Core banking, real-time ledgers & fraud intelligence", url: "industries.html" },
+    { title: "Healthcare & Life Sciences", group: "Industries", desc: "HIPAA-compliant telemetry & clinical workflows", url: "industries.html" },
+    { title: "Supply Chain & Autonomous Logistics", group: "Industries", desc: "Fleet telemetry, warehouse routing & cold-chain", url: "industries.html" },
+    { title: "Advanced Manufacturing & IoT", group: "Industries", desc: "Industry 4.0 telemetry, edge nodes & predictive maintenance", url: "industries.html" },
+    { title: "Global Fintech Settlement Engine Case Study", group: "Case Studies", desc: "Sub-10ms transaction ledger for financial enterprise", url: "portfolio.html" },
+    { title: "Healthcare Telemetry Exchange Case Study", group: "Case Studies", desc: "HIPAA-compliant distributed data network", url: "portfolio.html" },
+    { title: "Autonomous Fleet Intelligence Case Study", group: "Case Studies", desc: "Predictive cold-chain routing across 12 countries", url: "portfolio.html" },
+    { title: "Global Delivery Hubs & Advisory Board", group: "Governance", desc: "Pune, Bengaluru, Singapore & Americas Delivery", url: "about.html" },
+    { title: "ISO/IEC 27001 & SOC 2 Security Framework", group: "Governance", desc: "Zero-Trust architecture & data residency compliance", url: "about.html#compliance" },
+    { title: "Submit Enterprise RFP / Request Briefing", group: "Engagement", desc: "Schedule a confidential architectural consultation", url: "contact.html" }
+  ];
+
+  function createCommandPalette() {
+    if (document.getElementById("cmd-palette-backdrop")) return;
+
+    var backdrop = document.createElement("div");
+    backdrop.id = "cmd-palette-backdrop";
+    backdrop.className = "cmd-modal-backdrop";
+    backdrop.setAttribute("role", "dialog");
+    backdrop.setAttribute("aria-modal", "true");
+    backdrop.setAttribute("aria-label", "Global Enterprise Search");
+
+    backdrop.innerHTML =
+      '<div class="cmd-modal">' +
+        '<div class="cmd-input-wrap">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' +
+          '<input type="text" class="cmd-input" id="cmd-search-input" placeholder="Search enterprise practices, industries, case studies, compliance..." autocomplete="off">' +
+          '<button type="button" id="cmd-close-btn" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.2rem;line-height:1;padding:4px 8px;" aria-label="Close search">&times;</button>' +
+        '</div>' +
+        '<div class="cmd-results" id="cmd-results-list"></div>' +
+        '<div class="cmd-footer">' +
+          '<span>Navigate with <kbd class="kbd-shortcut">&uarr;</kbd> <kbd class="kbd-shortcut">&darr;</kbd> &bull; Press <kbd class="kbd-shortcut">Enter</kbd> to select</span>' +
+          '<span>Press <kbd class="kbd-shortcut">ESC</kbd> to exit</span>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(backdrop);
+
+    var input = document.getElementById("cmd-search-input");
+    var list = document.getElementById("cmd-results-list");
+    var closeBtn = document.getElementById("cmd-close-btn");
+    var selectedIndex = 0;
+
+    function renderResults(query) {
+      var q = (query || "").toLowerCase().trim();
+      var filtered = searchIndex.filter(function (item) {
+        return !q || item.title.toLowerCase().indexOf(q) !== -1 || item.desc.toLowerCase().indexOf(q) !== -1 || item.group.toLowerCase().indexOf(q) !== -1;
+      });
+
+      if (!filtered.length) {
+        list.innerHTML = '<div style="padding:24px;text-align:center;color:var(--muted);font-size:0.9rem;">No matching enterprise capabilities found. Try "AI", "Fintech", "Cloud", or "Compliance".</div>';
+        return;
+      }
+
+      var html = "";
+      var currentGroup = "";
+      filtered.forEach(function (item, idx) {
+        if (item.group !== currentGroup) {
+          currentGroup = item.group;
+          html += '<div class="cmd-group-title">' + currentGroup + '</div>';
+        }
+        var isSel = idx === selectedIndex ? " selected" : "";
+        html += '<a href="' + item.url + '" class="cmd-item' + isSel + '" data-idx="' + idx + '">' +
+                  '<div>' +
+                    '<div style="font-weight:600;">' + item.title + '</div>' +
+                    '<div class="cmd-item-desc">' + item.desc + '</div>' +
+                  '</div>' +
+                  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+                '</a>';
+      });
+      list.innerHTML = html;
+    }
+
+    function openModal() {
+      backdrop.classList.add("open");
+      selectedIndex = 0;
+      renderResults("");
+      window.setTimeout(function () { input.focus(); }, 60);
+    }
+
+    function closeModal() {
+      backdrop.classList.remove("open");
+      input.value = "";
+    }
+
+    input.addEventListener("input", function () {
+      selectedIndex = 0;
+      renderResults(input.value);
+    });
+
+    input.addEventListener("keydown", function (e) {
+      var items = list.querySelectorAll(".cmd-item");
+      if (!items.length) return;
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        selectedIndex = (selectedIndex + 1) % items.length;
+        items.forEach(function (el, i) { el.classList.toggle("selected", i === selectedIndex); });
+        items[selectedIndex].scrollIntoView({ block: "nearest" });
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+        items.forEach(function (el, i) { el.classList.toggle("selected", i === selectedIndex); });
+        items[selectedIndex].scrollIntoView({ block: "nearest" });
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        if (items[selectedIndex]) items[selectedIndex].click();
+      } else if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", function (e) {
+      if (e.target === backdrop) closeModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        if (backdrop.classList.contains("open")) closeModal();
+        else openModal();
+      } else if (e.key === "Escape" && backdrop.classList.contains("open")) {
+        closeModal();
+      }
+    });
+
+    document.querySelectorAll(".nav-search-btn").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+  }
+  createCommandPalette();
+
+  // ==========================================================================
+  // Real-Time Hero Telemetry Simulator
+  // ==========================================================================
+  var pingElements = document.querySelectorAll("[data-live-ping]");
+  if (pingElements.length) {
+    window.setInterval(function () {
+      pingElements.forEach(function (el) {
+        var base = parseInt(el.getAttribute("data-base") || "12", 10);
+        var variation = Math.floor(Math.random() * 5) - 2;
+        var latency = Math.max(7, base + variation);
+        el.textContent = latency + "ms";
+      });
+    }, 2800);
+  }
+
+  // ==========================================================================
+  // Interactive Enterprise ROI & Scale Estimator
+  // ==========================================================================
+  var teamSlider = document.getElementById("roi-team-size");
+  var workloadSlider = document.getElementById("roi-workloads");
+  if (teamSlider && workloadSlider) {
+    var updateROI = function () {
+      var team = parseInt(teamSlider.value, 10);
+      var workloads = parseInt(workloadSlider.value, 10);
+
+      var teamValEl = document.getElementById("roi-team-val");
+      var workloadValEl = document.getElementById("roi-workload-val");
+      var velocityEl = document.getElementById("roi-velocity-res");
+      var savingsEl = document.getElementById("roi-savings-res");
+      var opsEl = document.getElementById("roi-ops-res");
+
+      if (teamValEl) teamValEl.textContent = team + " Engineers";
+      if (workloadValEl) workloadValEl.textContent = workloads + " Microservices";
+
+      var velocity = Math.min(68, 30 + Math.round((workloads / 50) * 35));
+      var annualSavings = Math.round((team * 4500) + (workloads * 3200));
+      var opsThroughput = ((workloads * 180) + (team * 40)).toLocaleString();
+
+      if (velocityEl) velocityEl.textContent = "+" + velocity + "%";
+      if (savingsEl) savingsEl.textContent = "$" + Math.round(annualSavings / 1000) + "k/yr";
+      if (opsEl) opsEl.textContent = opsThroughput + "k/mo";
+    };
+
+    teamSlider.addEventListener("input", updateROI);
+    workloadSlider.addEventListener("input", updateROI);
+    updateROI();
   }
 })();

@@ -9,42 +9,37 @@
             /* ==========================
                ORGANIZATION
             ========================== */
+            /* ==========================
+               GLOBAL ENTERPRISE
+            ========================== */
             {
-                "@type": "Organization",
+                "@type": "Corporation",
                 "@id": BASE_URL + "/#organization",
                 "name": "ForgeArc Technologies",
+                "legalName": "ForgeArc Technologies Global",
+                "description": "Global digital engineering, systems architecture, and applied AI enterprise consultancy.",
                 "url": BASE_URL,
                 "logo": BASE_URL + "/assets/icon-512.png",
                 "image": BASE_URL + "/assets/icon-512.png",
-                "email": "contact@forgearc.co.in",
+                "email": "enterprise@forgearc.co.in",
                 "telephone": "+91-9860606140",
+                "areaServed": [
+                    { "@type": "Country", "name": "India" },
+                    { "@type": "Country", "name": "Singapore" },
+                    { "@type": "Country", "name": "United States" }
+                ],
                 "sameAs": [
                     "https://github.com/Sarthak080904"
-                ]
-            },
-            /* ==========================
-               LOCAL BUSINESS
-            ========================== */
-            {
-                "@type": "LocalBusiness",
-                "@id": BASE_URL + "/#localbusiness",
-                "name": "ForgeArc Technologies",
-                "image": BASE_URL + "/assets/icon-512.png",
-                "url": BASE_URL,
-                "email": "contact@forgearc.co.in",
-                "telephone": "+91-9860606140",
-                "priceRange": "$$",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Pune",
-                    "addressRegion": "Maharashtra",
-                    "postalCode": "",
-                    "addressCountry": "IN"
-                },
-                "areaServed": {
-                    "@type": "Country",
-                    "name": "India"
-                },
+                ],
+                "contactPoint": [
+                    {
+                        "@type": "ContactPoint",
+                        "telephone": "+91-9860606140",
+                        "contactType": "customer service",
+                        "email": "enterprise@forgearc.co.in",
+                        "availableLanguage": ["English", "Hindi", "Marathi"]
+                    }
+                ],
                 "founder": {
                     "@type": "Person",
                     "name": "Sarthak Bharat Bhujbal"
