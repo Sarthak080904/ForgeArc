@@ -54,7 +54,6 @@
     var onScroll = function () {
       var scrolled = window.scrollY > 8;
       nav.classList.toggle("scrolled", scrolled);
-      nav.style.boxShadow = scrolled ? "0 8px 24px rgba(3,10,22,0.25)" : "none";
     };
     document.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -222,4 +221,83 @@
   // Footer year
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // ==========================================================================
+  // Theme Toggle Controller (Dark / Light mode)
+  // ==========================================================================
+  var themeToggleBtns = document.querySelectorAll(".theme-toggle");
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+  function getStoredTheme() {
+    try {
+      return localStorage.getItem("forgearc-theme");
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getEffectiveTheme() {
+    var stored = getStoredTheme();
+    if (stored === "light" || stored === "dark") return stored;
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+      return "light";
+    }
+    return "dark";
+  }
+
+  function updateToggleUI(theme) {
+    var isLight = theme === "light";
+    var label = isLight ? "Switch to dark mode" : "Switch to light mode";
+    themeToggleBtns.forEach(function (btn) {
+      btn.setAttribute("aria-label", label);
+      btn.setAttribute("title", label);
+      btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+    });
+    if (themeMeta) {
+      themeMeta.setAttribute("content", isLight ? "#F8FAFC" : "#0A0F1E");
+    }
+  }
+
+  function setTheme(theme, animate) {
+    if (animate) {
+      document.documentElement.classList.add("theme-transition");
+      window.clearTimeout(window.__themeTransitionTimeout);
+      window.__themeTransitionTimeout = window.setTimeout(function () {
+        document.documentElement.classList.remove("theme-transition");
+      }, 350);
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+    updateToggleUI(theme);
+  }
+
+  // Initialize theme from current attribute or preference
+  var initialTheme = document.documentElement.getAttribute("data-theme") || getEffectiveTheme();
+  setTheme(initialTheme, false);
+
+  if (themeToggleBtns.length) {
+    themeToggleBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var current = document.documentElement.getAttribute("data-theme") || "dark";
+        var next = current === "light" ? "dark" : "light";
+        try {
+          localStorage.setItem("forgearc-theme", next);
+        } catch (e) {}
+        setTheme(next, true);
+      });
+    });
+
+    if (window.matchMedia) {
+      var colorSchemeQuery = window.matchMedia("(prefers-color-scheme: light)");
+      var onSystemThemeChange = function (e) {
+        if (!getStoredTheme()) {
+          setTheme(e.matches ? "light" : "dark", true);
+        }
+      };
+      if (colorSchemeQuery.addEventListener) {
+        colorSchemeQuery.addEventListener("change", onSystemThemeChange);
+      } else if (colorSchemeQuery.addListener) {
+        colorSchemeQuery.addListener(onSystemThemeChange);
+      }
+    }
+  }
 })();
