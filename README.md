@@ -16,7 +16,7 @@ css/style.css    Full design system: tokens, glass cards, mesh gradients, bento 
 js/script.js     Nav shrink-on-scroll, scroll reveals, count-up stats, hero spotlight/parallax, tabs, contact form
 js/footer.js     Shared footer injected on every page so it stays in sync
 assets/          Logo mark (transparent), favicons, original logo file
-assets/photos/   Home industry-card photos, from Unsplash (free licence, no attribution required)
+assets/photos/   Home industry cards, Services (svc-*) and About photos, from Unsplash (free licence, no attribution required)
 ```
 
 ## Theme tokens (css/style.css :root)
