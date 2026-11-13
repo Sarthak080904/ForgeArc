@@ -106,17 +106,47 @@
         </div>
       </div>
     </div>
-    <div class="hero-art glass reveal" style="padding:0;" aria-hidden="true">
-      <svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg">
-        <path class="arc-line orange" d="M60,340 C120,180 220,60 400,70"/>
-        <path class="arc-line" d="M40,260 C160,260 260,180 340,60"/>
-        <path class="arc-line" d="M90,400 C220,380 360,320 430,200"/>
-        <circle class="arc-dot" cx="400" cy="70" r="6"/>
-        <circle class="arc-dot steel" cx="340" cy="60" r="5"/>
-        <circle class="arc-dot" cx="430" cy="200" r="5"/>
-        <circle class="arc-dot steel" cx="60" cy="340" r="5"/>
-        <circle class="arc-dot steel" cx="90" cy="400" r="4"/>
-      </svg>
+    <!-- Illustrative product mockup (sample UI, not client data) -->
+    <div class="hero-art reveal" aria-hidden="true">
+      <div class="mock-window glass">
+        <div class="mock-bar"><i></i><i></i><i></i><span>app.yourbusiness.in</span></div>
+        <div class="mock-body">
+          <div class="mock-side"><b class="on"></b><b></b><b></b><b></b></div>
+          <div class="mock-main">
+            <div class="mock-tiles">
+              <div class="mock-tile"><small>Orders today</small><strong>128</strong><em>+12%</em></div>
+              <div class="mock-tile"><small>Invoices sent</small><strong>46</strong><em>auto</em></div>
+              <div class="mock-tile"><small>Stock alerts</small><strong>3</strong><em class="warn">low</em></div>
+            </div>
+            <div class="mock-chart">
+              <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="mockFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#F2820D" stop-opacity="0.35"/>
+                    <stop offset="1" stop-color="#F2820D" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <g class="mock-gridlines"><path d="M0 30H400M0 70H400M0 110H400"/></g>
+                <g class="mock-bars">
+                  <rect x="18" y="96" width="22" height="54" rx="4"/><rect x="72" y="84" width="22" height="66" rx="4"/>
+                  <rect x="126" y="100" width="22" height="50" rx="4"/><rect x="180" y="70" width="22" height="80" rx="4"/>
+                  <rect x="234" y="78" width="22" height="72" rx="4"/><rect x="288" y="52" width="22" height="98" rx="4"/>
+                  <rect x="342" y="40" width="22" height="110" rx="4"/>
+                </g>
+                <path fill="url(#mockFill)" d="M0,120 C60,112 90,92 140,88 C200,84 220,58 280,46 C330,36 360,22 400,14 L400,150 L0,150 Z"/>
+                <path class="arc-line orange" d="M0,120 C60,112 90,92 140,88 C200,84 220,58 280,46 C330,36 360,22 400,14"/>
+                <circle class="arc-dot" cx="280" cy="46" r="5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mock-float mock-toast"><span class="mock-check"></span>Invoice #1042 sent automatically</div>
+      <div class="mock-float mock-chat">
+        <div class="who">AI assistant</div>
+        <p>3 payments are overdue. Send reminders on WhatsApp?</p>
+        <span class="mock-chip">Send reminders</span>
+      </div>
     </div>
   </div>
 </section>
@@ -161,16 +191,14 @@
           <div class="eyebrow">Our promise</div>
           <h3>Every solution we build is —</h3>
         </div>
-        <div style="padding:28px 32px;">
-          <div class="tag-row">
-            <span class="tag">Custom</span>
-            <span class="tag">Secure</span>
-            <span class="tag">Scalable</span>
-            <span class="tag">User-friendly</span>
-            <span class="tag">Performance-focused</span>
-            <span class="tag">Future-ready</span>
-          </div>
-        </div>
+        <ul class="check-grid" style="padding:28px 32px;">
+          <li>Custom</li>
+          <li>Secure</li>
+          <li>Scalable</li>
+          <li>User-friendly</li>
+          <li>Performance-focused</li>
+          <li>Future-ready</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -323,10 +351,10 @@
       <h2>Built for the businesses that need a real technology partner.</h2>
     </div>
     <div class="grid grid-4">
-      <div class="card industry-card reveal"><div class="card-icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M14 9h1M9 13h1M14 13h1"/></svg></div><h3>Healthcare</h3></div>
-      <div class="card industry-card reveal d1"><div class="card-icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9L12 5 2 9l10 4 10-4zM6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Education</h3></div>
-      <div class="card industry-card reveal d2"><div class="card-icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v13H3z"/><path d="M8 21h8M12 16v5"/></svg></div><h3>Retail</h3></div>
-      <div class="card industry-card reveal d3"><div class="card-icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="12"/><path d="M16 11h3l2 3v5h-5"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg></div><h3>Logistics</h3></div>
+      <div class="card industry-card reveal"><img class="card-photo" src="assets/photos/healthcare.jpg" alt="" width="800" height="500" loading="lazy"><h3>Healthcare</h3><p>Patient portals, appointment systems and clinic management.</p></div>
+      <div class="card industry-card reveal d1"><img class="card-photo" src="assets/photos/education.jpg" alt="" width="800" height="500" loading="lazy"><h3>Education</h3><p>Student portals, learning platforms and admin tools.</p></div>
+      <div class="card industry-card reveal d2"><img class="card-photo" src="assets/photos/retail.jpg" alt="" width="800" height="500" loading="lazy"><h3>Retail</h3><p>Storefronts, POS integrations and inventory management.</p></div>
+      <div class="card industry-card reveal d3"><img class="card-photo" src="assets/photos/logistics.jpg" alt="" width="800" height="500" loading="lazy"><h3>Logistics</h3><p>Fleet tracking, route planning and warehouse systems.</p></div>
     </div>
     <div class="text-center reveal" style="margin-top:36px;">
       <a href="industries.html" class="btn btn-ghost">See all 12 industries</a>

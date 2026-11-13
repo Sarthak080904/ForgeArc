@@ -34,6 +34,12 @@
 <style>
   .launch-card{ display:flex; flex-direction:column; gap:16px; }
   .launch-status{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:0.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ember-soft); }
+  .launch-art{ display:flex; flex-direction:column; gap:10px; padding:18px; height:128px; border-radius:12px; border:1px dashed var(--border-strong); background:var(--surface); }
+  .launch-art i{ display:block; height:8px; border-radius:4px; background:var(--surface-2); }
+  .launch-art i:nth-child(1){ width:35%; background:var(--card-border-hover); }
+  .launch-art i:nth-child(2){ width:85%; }
+  .launch-art i:nth-child(3){ width:60%; }
+  .launch-art i:nth-child(4){ margin-top:auto; width:30%; height:22px; border-radius:6px; }
   .launch-status .dot{ width:7px; height:7px; border-radius:50%; background:var(--ember); }
 </style>
 </head>
@@ -82,7 +88,7 @@
 <section class="page-hero">
   <div class="bg-mesh" aria-hidden="true"></div>
   <div class="container">
-    <div class="breadcrumb">Home <span class="accent">/</span> Portfolio</div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span class="accent">/</span> Portfolio</nav>
     <h1>Our first launches are being built right now.</h1>
     <p>ForgeArc is a new studio — which means our founding clients get senior attention on every project, not the leftover bandwidth of an established agency. Here's exactly how each launch will be documented.</p>
   </div>
@@ -113,16 +119,19 @@
     </div>
     <div class="grid grid-3">
       <div class="card launch-card reveal">
+        <div class="launch-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         <div class="launch-status"><span class="dot"></span>In discovery</div>
         <h3>Founding Client 01</h3>
         <p>Industry and scope to be announced once the engagement is signed. Reserved for our first partner.</p>
       </div>
       <div class="card launch-card reveal d1">
+        <div class="launch-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         <div class="launch-status"><span class="dot"></span>Open slot</div>
         <h3>Founding Client 02</h3>
         <p>This slot is open. Founding clients get founder-level attention and transparent, honest pricing.</p>
       </div>
       <div class="card launch-card reveal d2">
+        <div class="launch-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         <div class="launch-status"><span class="dot"></span>Open slot</div>
         <h3>Founding Client 03</h3>
         <p>This slot is open. Every launch is documented Problem → Research → Solution → Technology → Screens → Outcome.</p>
