@@ -300,4 +300,266 @@
       }
     }
   }
+
+  // ==========================================================================
+  // Reading Progress Bar
+  // ==========================================================================
+  var progressBar = document.querySelector('.progress-bar-top');
+  if (progressBar) {
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+      progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    }, { passive: true });
+  }
+
+  // ==========================================================================
+  // Card Cursor Spotlight (Desktop)
+  // ==========================================================================
+  if (window.matchMedia('(min-width: 900px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.card, .estimator-box, .forge-demo-box').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', x + 'px');
+        card.style.setProperty('--mouse-y', y + 'px');
+      });
+    });
+  }
+
+  // ==========================================================================
+  // Floating Action Hub & Back to Top
+  // ==========================================================================
+  var backToTopBtn = document.querySelector('.back-to-top');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ==========================================================================
+  // FAQ Accordion
+  // ==========================================================================
+  var faqItems = document.querySelectorAll('.faq-item');
+  if (faqItems.length) {
+    faqItems.forEach(function (item) {
+      var header = item.querySelector('.faq-header');
+      if (!header) return;
+      header.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        faqItems.forEach(function (other) { other.classList.remove('open'); });
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+  }
+
+  // ==========================================================================
+  // Interactive Project Estimator
+  // ==========================================================================
+  var estimatorContainer = document.querySelector('.estimator-box');
+  if (estimatorContainer) {
+    var basePrices = {
+      'web': 45000,
+      'mobile': 75000,
+      'ai': 60000,
+      'ecommerce': 55000,
+      'enterprise': 120000
+    };
+    var baseWeeks = {
+      'web': 3,
+      'mobile': 5,
+      'ai': 4,
+      'ecommerce': 4,
+      'enterprise': 8
+    };
+
+    var featureCosts = {
+      'auth': 10000,
+      'crm': 25000,
+      'chatbot': 30000,
+      'payment': 15000,
+      'scale': 35000
+    };
+
+    var currentType = 'web';
+    var selectedFeatures = ['auth', 'crm'];
+    var currentSpeed = 'standard';
+
+    function updateEstimator() {
+      var base = basePrices[currentType] || 45000;
+      var weeks = baseWeeks[currentType] || 3;
+
+      selectedFeatures.forEach(function (f) {
+        base += (featureCosts[f] || 0);
+        weeks += 0.8;
+      });
+
+      if (currentSpeed === 'fast') {
+        base *= 1.25;
+        weeks = Math.max(2, Math.round(weeks * 0.65));
+      } else {
+        weeks = Math.round(weeks);
+      }
+
+      var minPrice = Math.round(base * 0.9 / 1000) * 1000;
+      var maxPrice = Math.round(base * 1.2 / 1000) * 1000;
+
+      var priceEl = document.getElementById('est-price');
+      var timeEl = document.getElementById('est-time');
+      var ctaEl = document.getElementById('est-cta');
+
+      if (priceEl) priceEl.textContent = '₹' + minPrice.toLocaleString('en-IN') + ' – ₹' + maxPrice.toLocaleString('en-IN');
+      if (timeEl) timeEl.textContent = '~ ' + weeks + ' to ' + (weeks + 2) + ' weeks to MVP launch';
+      if (ctaEl) {
+        var query = encodeURIComponent('Estimated scope: ' + currentType.toUpperCase() + ' with ' + selectedFeatures.join(', ') + ' (' + currentSpeed + ')');
+        ctaEl.href = 'contact.html?estimate=' + query;
+      }
+    }
+
+    document.querySelectorAll('.chip-type').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        document.querySelectorAll('.chip-type').forEach(function (c) { c.classList.remove('selected'); });
+        chip.classList.add('selected');
+        currentType = chip.getAttribute('data-val');
+        updateEstimator();
+      });
+    });
+
+    document.querySelectorAll('.chip-feature').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var val = chip.getAttribute('data-val');
+        chip.classList.toggle('selected');
+        var idx = selectedFeatures.indexOf(val);
+        if (idx > -1) {
+          selectedFeatures.splice(idx, 1);
+        } else {
+          selectedFeatures.push(val);
+        }
+        updateEstimator();
+      });
+    });
+
+    document.querySelectorAll('.chip-speed').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        document.querySelectorAll('.chip-speed').forEach(function (c) { c.classList.remove('selected'); });
+        chip.classList.add('selected');
+        currentSpeed = chip.getAttribute('data-val');
+        updateEstimator();
+      });
+    });
+
+    updateEstimator();
+  }
+
+  // ==========================================================================
+  // Generative UI / AI App Builder Interactive Demo
+  // ==========================================================================
+  var demoContainer = document.querySelector('.forge-demo-box');
+  if (demoContainer) {
+    var demoBlueprints = {
+      'erp': {
+        name: 'Enterprise ERP & Inventory Engine',
+        routes: ['GET /api/v1/inventory/telemetry', 'POST /api/v1/orders/dispatch', 'WS /stream/warehouse-sync'],
+        stack: 'Next.js 15, FastAPI, PostgreSQL, Redis',
+        metrics: { speed: '+4.2x', latency: '14ms', automation: '85%' }
+      },
+      'agent': {
+        name: 'Autonomous AI Support & Operations Agent',
+        routes: ['POST /agent/orchestrate/intent', 'GET /vector/knowledge/query', 'POST /actions/ticket/resolve'],
+        stack: 'Python GenAI SDK, Vector Store, WebSocket live stream',
+        metrics: { speed: '+6.8x', latency: '22ms', automation: '94%' }
+      },
+      'market': {
+        name: 'B2B Marketplace & Automated Escrow',
+        routes: ['POST /api/v1/b2b/quote/request', 'POST /payments/razorpay/webhook', 'GET /analytics/buyer-demand'],
+        stack: 'React, Node.js Microservices, MongoDB, S3',
+        metrics: { speed: '+3.5x', latency: '18ms', automation: '78%' }
+      }
+    };
+
+    var currentBlueprint = 'erp';
+    var enabledAiModules = ['ocr', 'rag'];
+
+    function updateDemoSimulation() {
+      var bp = demoBlueprints[currentBlueprint] || demoBlueprints.erp;
+      var terminalEl = document.getElementById('demo-terminal-code');
+      var statSpeed = document.getElementById('demo-stat-speed');
+      var statLatency = document.getElementById('demo-stat-latency');
+      var statAuto = document.getElementById('demo-stat-auto');
+
+      if (statSpeed) statSpeed.textContent = bp.metrics.speed;
+      if (statLatency) statLatency.textContent = bp.metrics.latency;
+      if (statAuto) statAuto.textContent = bp.metrics.automation;
+
+      if (terminalEl) {
+        var modulesText = enabledAiModules.map(function(m){ return '  ├── [Active] module.' + m + ' (Autonomous Worker Node)'; }).join('
+');
+        var routesText = bp.routes.map(function(r){ return '  ├── route: ' + r; }).join('
+');
+
+        terminalEl.textContent = 
+          '// ForgeArc Architecture Blueprint: ' + bp.name + '
+' +
+          '// Target Stack: ' + bp.stack + '
+
+' +
+          'SystemTopology {
+' +
+          '  status: ACTIVE_STABLE,
+' +
+          '  runtime: 'Edge-distributed Docker Cluster',
+' +
+          '  modules: [
+' + (modulesText || '  ├── [None]') + '
+  ],
+' +
+          '  endpoints: [
+' + routesText + '
+  ]
+' +
+          '}
+
+' +
+          '>> Ready for production staging mirror to GitHub main.';
+      }
+    }
+
+    document.querySelectorAll('.chip-demo-type').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        document.querySelectorAll('.chip-demo-type').forEach(function (c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        currentBlueprint = chip.getAttribute('data-bp');
+        updateDemoSimulation();
+      });
+    });
+
+    document.querySelectorAll('.chip-demo-ai').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var mod = chip.getAttribute('data-module');
+        chip.classList.toggle('active');
+        var idx = enabledAiModules.indexOf(mod);
+        if (idx > -1) {
+          enabledAiModules.splice(idx, 1);
+        } else {
+          enabledAiModules.push(mod);
+        }
+        updateDemoSimulation();
+      });
+    });
+
+    updateDemoSimulation();
+  }
+
 })();

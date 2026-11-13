@@ -98,6 +98,36 @@
             "url": currentUrl
         });
     }
+    
+    /* ==========================
+       FAQ PAGE DETECTION (Home & FAQ sections)
+    ========================== */
+    var faqElements = document.querySelectorAll('.faq-item');
+    if (faqElements.length) {
+        var faqEntities = [];
+        faqElements.forEach(function (el) {
+            var q = el.querySelector('.faq-header span:first-child');
+            var a = el.querySelector('.faq-content p');
+            if (q && a) {
+                faqEntities.push({
+                    '@type': 'Question',
+                    'name': q.textContent.trim(),
+                    'acceptedAnswer': {
+                        '@type': 'Answer',
+                        'text': a.textContent.trim()
+                    }
+                });
+            }
+        });
+        if (faqEntities.length) {
+            schema['@graph'].push({
+                '@type': 'FAQPage',
+                '@id': currentUrl + '#faq',
+                'mainEntity': faqEntities
+            });
+        }
+    }
+
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.text = JSON.stringify(schema);
