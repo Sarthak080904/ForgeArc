@@ -34,8 +34,6 @@
 </head>
 <body>
 
-<div class="progress-bar-top" id="progress-bar" aria-hidden="true"></div>
-
 <header class="nav">
   <div class="container">
     <a href="/" class="nav-brand" aria-label="ForgeArc Technologies — home">
@@ -108,17 +106,17 @@
         </div>
       </div>
     </div>
-    <div class="hero-art glass reveal" style="padding:0;overflow:hidden;position:relative;" aria-hidden="true">
-      <div class="hero-art-wrapper">
-        <img class="hero-art-img" src="assets/hero-showcase.jpg" alt="ForgeArc Intelligent Architecture Engine 3D Glass Blueprint" loading="eager">
-        <div class="hero-badge-overlay">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 8px #22C55E;"></span>
-            <span style="font-family:var(--font-display);font-size:0.85rem;font-weight:600;color:#FFF;">Live Studio Cluster</span>
-          </div>
-          <span style="font-size:0.75rem;padding:3px 9px;border-radius:999px;background:rgba(242,130,13,0.2);color:var(--ember-soft);border:1px solid rgba(242,130,13,0.35);font-family:monospace;font-weight:600;">FastAPI + Next.js + AI</span>
-        </div>
-      </div>
+    <div class="hero-art glass reveal" style="padding:0;" aria-hidden="true">
+      <svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg">
+        <path class="arc-line orange" d="M60,340 C120,180 220,60 400,70"/>
+        <path class="arc-line" d="M40,260 C160,260 260,180 340,60"/>
+        <path class="arc-line" d="M90,400 C220,380 360,320 430,200"/>
+        <circle class="arc-dot" cx="400" cy="70" r="6"/>
+        <circle class="arc-dot steel" cx="340" cy="60" r="5"/>
+        <circle class="arc-dot" cx="430" cy="200" r="5"/>
+        <circle class="arc-dot steel" cx="60" cy="340" r="5"/>
+        <circle class="arc-dot steel" cx="90" cy="400" r="4"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -220,103 +218,8 @@
         </div>
       </div>
     </div>
-
-    <!-- Cloud & AI Architecture Feature Banner -->
-    <div class="reveal" style="margin-top:28px;">
-      <div class="card" style="padding:0;overflow:hidden;display:grid;grid-template-columns:1.2fr 0.8fr;align-items:center;background:var(--surface);">
-        <div style="padding:40px;">
-          <div class="eyebrow">Enterprise-Ready Architecture</div>
-          <h3 style="font-size:1.6rem;margin-bottom:12px;">Engineered for scale, speed, and continuous uptime.</h3>
-          <p style="margin-bottom:20px;">Every digital product we engineer features modular API contracts, edge-cached microservices, and AI-accelerated workflows configured to grow seamlessly alongside your customer volume.</p>
-          <div class="tag-row">
-            <span class="tag">Zero-Downtime CI/CD</span>
-            <span class="tag">PostgreSQL &amp; Redis</span>
-            <span class="tag">FastAPI Microservices</span>
-            <span class="tag">GenAI Workflows</span>
-          </div>
-        </div>
-        <div style="height:100%;min-height:280px;position:relative;">
-          <img src="assets/services-showcase.jpg" alt="ForgeArc Cloud Architecture and Microservices" style="width:100%;height:100%;object-fit:cover;display:block;">
-        </div>
-      </div>
-    </div>
-
     <div class="text-center reveal" style="margin-top:40px;">
       <a href="services.html" class="btn btn-ghost">See full service details</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GENERATIVE UI / AI APP BUILDER DEMO ============ -->
-<section class="section-band" id="architecture-forge" style="padding:90px 0;">
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="eyebrow" style="justify-content:center;">Interactive Generative Studio</div>
-      <h2>ForgeArc Architecture Engine — Live Blueprint Simulator</h2>
-      <p>Configure an enterprise application stack in seconds and watch the live architecture topology adapt dynamically.</p>
-    </div>
-
-    <div class="forge-demo-box reveal">
-      <div class="forge-demo-grid">
-        <!-- Interactive Controls -->
-        <div class="forge-demo-options">
-          <div class="demo-option-group">
-            <h4>1. Select Application Blueprint</h4>
-            <div class="demo-chips">
-              <button type="button" class="demo-chip chip-demo-type active" data-bp="erp">Enterprise ERP &amp; Inventory</button>
-              <button type="button" class="demo-chip chip-demo-type" data-bp="agent">Autonomous AI Support Agent</button>
-              <button type="button" class="demo-chip chip-demo-type" data-bp="market">B2B Marketplace &amp; Escrow</button>
-            </div>
-          </div>
-
-          <div class="demo-option-group">
-            <h4>2. Toggle AI &amp; Automation Modules</h4>
-            <div class="demo-chips">
-              <button type="button" class="demo-chip chip-demo-ai active" data-module="ocr">Document OCR &amp; Invoices</button>
-              <button type="button" class="demo-chip chip-demo-ai active" data-module="rag">Vector RAG Knowledge Search</button>
-              <button type="button" class="demo-chip chip-demo-ai" data-module="agent">Multi-Agent Workflow Loop</button>
-              <button type="button" class="demo-chip chip-demo-ai" data-module="telemetry">Real-time Telemetry Analytics</button>
-            </div>
-          </div>
-
-          <!-- Feature Mockup Image Card -->
-          <div class="feature-img-card" style="margin-top:10px;height:180px;">
-            <img src="assets/platform-preview.jpg" alt="ForgeArc Live Architecture Platform Dashboard" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Live Terminal Simulator -->
-        <div class="forge-demo-preview">
-          <div class="preview-terminal">
-            <div class="terminal-bar">
-              <div class="terminal-dots">
-                <span class="terminal-dot r"></span>
-                <span class="terminal-dot y"></span>
-                <span class="terminal-dot g"></span>
-              </div>
-              <span class="terminal-status">Topology Synced</span>
-            </div>
-            <pre class="terminal-body" id="demo-terminal-code"></pre>
-            <div class="preview-stats-bar">
-              <div>
-                <div class="preview-stat-val" id="demo-stat-speed">+4.2x</div>
-                <div class="preview-stat-lbl">Throughput</div>
-              </div>
-              <div>
-                <div class="preview-stat-val" id="demo-stat-latency">14ms</div>
-                <div class="preview-stat-lbl">P99 Latency</div>
-              </div>
-              <div>
-                <div class="preview-stat-val" id="demo-stat-auto">85%</div>
-                <div class="preview-stat-lbl">Automated</div>
-              </div>
-            </div>
-          </div>
-          <div style="text-align:center;margin-top:8px;">
-            <a href="contact.html?source=demo" class="btn btn-primary btn-block">Engineer This Blueprint For Your Business</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -380,55 +283,6 @@
   </div>
 </section>
 
-<!-- ============ INTERACTIVE PROJECT ESTIMATOR ============ -->
-<section id="estimator" style="padding:90px 0;">
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="eyebrow" style="justify-content:center;">Budget &amp; Timeline Calculator</div>
-      <h2>Interactive Project Estimator</h2>
-      <p>Select your scope to get upfront, transparent budget and delivery estimates for your project.</p>
-    </div>
-
-    <div class="estimator-box reveal">
-      <div class="estimator-grid">
-        <div>
-          <div class="estimator-group-title">1. Project Foundation</div>
-          <div class="chip-group">
-            <div class="chip chip-type selected" data-val="web">Web Application</div>
-            <div class="chip chip-type" data-val="mobile">Mobile App (iOS/Android)</div>
-            <div class="chip chip-type" data-val="ai">AI Agent / LLM Integration</div>
-            <div class="chip chip-type" data-val="ecommerce">E-commerce Platform</div>
-            <div class="chip chip-type" data-val="enterprise">Custom Enterprise ERP</div>
-          </div>
-
-          <div class="estimator-group-title">2. Key Capabilities &amp; Features</div>
-          <div class="chip-group">
-            <div class="chip chip-feature selected" data-val="auth">Auth &amp; RBAC Roles</div>
-            <div class="chip chip-feature selected" data-val="crm">CRM &amp; Invoicing Tools</div>
-            <div class="chip chip-feature" data-val="chatbot">AI Chatbot &amp; Support</div>
-            <div class="chip chip-feature" data-val="payment">Payment Gateway (Razorpay/Stripe)</div>
-            <div class="chip chip-feature" data-val="scale">High Concurrency Cloud Cluster</div>
-          </div>
-
-          <div class="estimator-group-title">3. Delivery Urgency</div>
-          <div class="chip-group" style="margin-bottom:0;">
-            <div class="chip chip-speed selected" data-val="standard">Standard Sprint (Balanced)</div>
-            <div class="chip chip-speed" data-val="fast">Fast-Track MVP (Expedited)</div>
-          </div>
-        </div>
-
-        <div class="estimator-summary">
-          <div class="eyebrow" style="margin-bottom:8px;display:inline-flex;">Estimated Investment</div>
-          <div class="price-tag" id="est-price">₹45,000 – ₹65,000</div>
-          <div class="time-tag" id="est-time">~ 3 to 5 weeks to MVP launch</div>
-          <a href="contact.html" id="est-cta" class="btn btn-primary btn-block">Lock In This Estimate</a>
-          <p style="font-size:0.78rem;color:var(--muted);margin-top:14px;margin-bottom:0;">*Indicative estimate based on typical scoped engagements. Fixed quote provided post discovery.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ PROCESS ============ -->
 <section class="section-alt">
   <div class="container">
@@ -480,70 +334,6 @@
   </div>
 </section>
 
-
-<!-- ============ FAQ SECTION ============ -->
-<section class="section-alt" id="faq" style="padding:90px 0;">
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="eyebrow" style="justify-content:center;">Frequently Asked Questions</div>
-      <h2>Clear answers to common questions.</h2>
-      <p>Everything you need to know about partnering with ForgeArc Technologies in Pune.</p>
-    </div>
-
-    <div class="faq-accordion reveal">
-      <div class="faq-item open">
-        <button class="faq-header" type="button" aria-expanded="true">
-          <span>How long does a typical custom software or MVP project take?</span>
-          <span class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-content">
-          <p>Most initial MVPs and tailored business applications are delivered in 3 to 6 weeks using our modular sprint methodology. Larger enterprise platforms or multi-platform systems typically run between 8 and 12 weeks with staged release milestones.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-header" type="button" aria-expanded="false">
-          <span>Who owns the intellectual property (IP) and source code?</span>
-          <span class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-content">
-          <p>You do — 100%. Upon milestone completion and final settlement, all intellectual property, source code, database architecture, and deployment credentials are fully transferred to your company with zero vendor lock-in.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-header" type="button" aria-expanded="false">
-          <span>How do you integrate AI into our existing business tools?</span>
-          <span class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-content">
-          <p>We build secure, private API bridges connecting cutting-edge models (Gemini, Claude, GPT, or self-hosted LLMs) with your proprietary spreadsheets, databases, CRMs, or ERPs. Your private company data is never used to train public models.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-header" type="button" aria-expanded="false">
-          <span>Do you provide post-launch maintenance and server management?</span>
-          <span class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-content">
-          <p>Yes. We offer continuous DevOps monitoring, security patching, backup automation, and incremental feature sprints to ensure your platform remains lightning-fast, compliant, and continuously available.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-header" type="button" aria-expanded="false">
-          <span>What are your billing milestones and payment terms?</span>
-          <span class="faq-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="faq-content">
-          <p>We work on structured milestone-based delivery: typically 30% upfront upon specification sign-off, 40% on mid-sprint staging demo review, and 30% upon final acceptance testing and production handover.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ CTA ============ -->
 <section>
   <div class="container">
@@ -567,16 +357,5 @@
 <script src="js/schema.js"></script>
 <script src="js/script.js"></script>
 <script src="js/footer.js"></script>
-
-<!-- Floating Action Hub -->
-<div class="floating-hub" aria-label="Quick Actions">
-  <a href="#" class="fab-btn back-to-top" aria-label="Back to top" title="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-  </a>
-  <a href="contact.html" class="fab-btn" aria-label="Start a project enquiry" title="Enquire now">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  </a>
-</div>
-
 </body>
 </html>
