@@ -1,303 +1,96 @@
-// ForgeArc Technologies — shared site behaviour
+// ForgeArc — page behaviour (runs after layout.js has injected header/footer)
 (function () {
   "use strict";
-
-  // Mouse-tracking spotlight on hero (desktop only, respects reduced motion)
-  var spotlight = document.querySelector(".hero-spotlight");
-  var heroForSpotlight = document.querySelector(".hero");
-  if (spotlight && heroForSpotlight && window.matchMedia("(min-width: 900px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    heroForSpotlight.addEventListener("mousemove", function (e) {
-      var rect = heroForSpotlight.getBoundingClientRect();
-      var x = ((e.clientX - rect.left) / rect.width) * 100;
-      var y = ((e.clientY - rect.top) / rect.height) * 100;
-      spotlight.style.setProperty("--sx", x + "%");
-      spotlight.style.setProperty("--sy", y + "%");
-    });
-  }
-
-  // Mobile nav toggle
+  // ---- Mobile nav
   var toggle = document.querySelector(".nav-toggle");
-  var links = document.querySelector(".nav-links");
+  var links = document.getElementById("nav-links");
+  function closeNav() {
+    if (!links) return;
+    links.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+  }
   if (toggle && links) {
-    toggle.addEventListener("click", function (e) {
-      e.stopPropagation();
-      var isOpen = links.classList.toggle("open");
-      toggle.classList.toggle("open", isOpen);
-      toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     });
-    links.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        links.classList.remove("open");
-        toggle.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
-    document.addEventListener("click", function (e) {
-      if (links.classList.contains("open") && !links.contains(e.target) && !toggle.contains(e.target)) {
-        links.classList.remove("open");
-        toggle.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && links.classList.contains("open")) {
-        links.classList.remove("open");
-        toggle.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
-    });
+    links.addEventListener("click", function (e) { if (e.target.closest("a")) closeNav(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeNav(); });
   }
 
-  // Sticky nav: shrinks + deepens on scroll
-  var nav = document.querySelector(".nav");
-  if (nav) {
-    var onScroll = function () {
-      var scrolled = window.scrollY > 8;
-      nav.classList.toggle("scrolled", scrolled);
-    };
-    document.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
-
-  // Clickable industry cards route visitors into a contextual enquiry.
-  document.querySelectorAll(".industry-card[data-href]").forEach(function (card) {
-    var href = card.getAttribute("data-href");
-    if (!href) return;
-    card.setAttribute("tabindex", "0");
-    card.setAttribute("role", "link");
+  // ---- Whole-card links (industries): the inner <a> stays the real link for keyboard users
+  document.querySelectorAll("[data-href]").forEach(function (card) {
     card.addEventListener("click", function (e) {
       if (e.target.closest("a")) return;
-      window.location.href = href;
-    });
-    card.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        window.location.href = href;
-      }
+      window.location.href = card.getAttribute("data-href");
     });
   });
 
-  // Count-up for numeric hero/stat figures marked with data-count
-  var counters = document.querySelectorAll("[data-count]");
-  if (counters.length) {
-    var animateCount = function (el) {
-      var target = parseFloat(el.getAttribute("data-count"));
-      var suffix = el.getAttribute("data-suffix") || "";
-      var duration = 1100;
-      var start = null;
-      function step(ts) {
-        if (!start) start = ts;
-        var progress = Math.min((ts - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        var value = Math.round(target * eased);
-        el.textContent = value + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    };
-    if ("IntersectionObserver" in window) {
-      var cio = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              animateCount(entry.target);
-              cio.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.4 }
-      );
-      counters.forEach(function (el) { cio.observe(el); });
-    } else {
-      counters.forEach(function (el) { el.textContent = el.getAttribute("data-count") + (el.getAttribute("data-suffix") || ""); });
-    }
-  }
-
-  // Subtle parallax drift for hero orbs, following the cursor (desktop only)
-  var heroOrbs = document.querySelectorAll(".hero-orb");
-  var heroSection = document.querySelector(".hero");
-  if (heroOrbs.length && heroSection && window.matchMedia("(min-width: 900px)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    heroSection.addEventListener("mousemove", function (e) {
-      var rect = heroSection.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      heroOrbs.forEach(function (orb, i) {
-        var depth = (i + 1) * 8;
-        orb.style.animationPlayState = "paused";
-        orb.style.transform = "translate(" + (x * depth) + "px, " + (y * depth) + "px)";
-      });
-    });
-    heroSection.addEventListener("mouseleave", function () {
-      heroOrbs.forEach(function (orb) {
-        orb.style.transform = "";
-        orb.style.animationPlayState = "running";
-      });
+  // ---- Tabs (home: starting point)
+  var tabs = document.querySelectorAll('[role="tab"]');
+  function selectTab(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
     });
   }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener("click", function () { selectTab(tab); });
+    tab.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      var next = tabs[(i + d + tabs.length) % tabs.length];
+      selectTab(next);
+      next.focus();
+    });
+  });
 
-  // Scroll reveal (fade-up and scale-in)
-  var revealEls = document.querySelectorAll(".reveal, .scale-in");
-  if ("IntersectionObserver" in window && revealEls.length) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    revealEls.forEach(function (el) { io.observe(el); });
+  // ---- Reveal on scroll
+  var els = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
   } else {
-    revealEls.forEach(function (el) { el.classList.add("in-view"); });
+    els.forEach(function (el) { el.classList.add("in"); });
   }
 
-  // Stage tabs (index: Small / Medium / Startup problems)
-  var tabs = document.querySelectorAll(".stage-tab");
-  if (tabs.length) {
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        var target = tab.getAttribute("data-target");
-        document.querySelectorAll(".stage-tab").forEach(function (t) { t.classList.remove("active"); });
-        document.querySelectorAll(".stage-panel").forEach(function (p) { p.classList.remove("active"); });
-        tab.classList.add("active");
-        var panel = document.querySelector('[data-panel="' + target + '"]');
-        if (panel) panel.classList.add("active");
-      });
-    });
-  }
-
-  // Contact form — static site, no backend: confirm + mailto handoff
+  // ---- Contact form: static site, no backend — hand off to the visitor's mail app
   var form = document.getElementById("contact-form");
   if (form) {
-    var params = new URLSearchParams(window.location.search);
-    var industry = (params.get("industry") || "").trim();
-    var messageField = document.getElementById("message");
-    if (industry && messageField && !messageField.value) {
-      messageField.value =
-        "Hi ForgeArc,\n\n" +
-        "I am exploring a " + industry + " project for a Pune-based business.\n\n" +
-        "Business location / area in Pune:\n" +
-        "Current challenge:\n" +
-        "What we want to build:\n" +
-        "Timeline:\n\n" +
-        "Please suggest the next steps.";
+    var industry = (new URLSearchParams(window.location.search).get("industry") || "").trim();
+    var msg = document.getElementById("message");
+    if (industry && msg && !msg.value) {
+      msg.value = "Hi ForgeArc,\n\nI'm exploring a " + industry + " project.\n\n" +
+        "Where we're based:\nWhat's slowing us down:\nWhat we want to build:\nTimeline:\n";
     }
-
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var status = document.getElementById("form-status");
       var data = new FormData(form);
-      var name = (data.get("name") || "").toString().trim();
-      var email = (data.get("email") || "").toString().trim();
-      var message = (data.get("message") || "").toString().trim();
-
+      var name = String(data.get("name") || "").trim();
+      var email = String(data.get("email") || "").trim();
+      var message = String(data.get("message") || "").trim();
       if (!name || !email || !message) {
-        status.textContent = "Please fill in your name, email, and message.";
+        status.textContent = "Add your name, email and a short message, then send again.";
         status.className = "form-status show err";
         return;
       }
-
-      var subjectLine = "New Pune enquiry from " + name;
-      if (industry) subjectLine += " - " + industry;
-      var subject = encodeURIComponent(subjectLine + " — ForgeArc website");
-      var body = encodeURIComponent(
-        "Name: " + name +
-        "\nEmail: " + email +
+      var subject = "New enquiry from " + name + (industry ? " (" + industry + ")" : "") + " via forgearc.co.in";
+      var body = "Name: " + name + "\nEmail: " + email +
         "\nCompany: " + (data.get("company") || "-") +
         "\nBudget: " + (data.get("budget") || "-") +
-        "\nIndustry: " + (industry || "-") +
-        "\n\nMessage:\n" + message
-      );
-
-      status.textContent = "Opening your email client to send this to ForgeArc…";
+        "\nIndustry: " + (industry || "-") + "\n\n" + message;
+      status.textContent = "Opening your email app with this message filled in.";
       status.className = "form-status show ok";
-      window.location.href = "mailto:contact@forgearc.co.in?subject=" + subject + "&body=" + body;
+      window.location.href = "mailto:contact@forgearc.co.in?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });
-  }
-
-  // Footer year
-  var yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // ==========================================================================
-  // Theme Toggle Controller (Dark / Light mode)
-  // ==========================================================================
-  var themeToggleBtns = document.querySelectorAll(".theme-toggle");
-  var themeMeta = document.querySelector('meta[name="theme-color"]');
-
-  function getStoredTheme() {
-    try {
-      return localStorage.getItem("forgearc-theme");
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function getEffectiveTheme() {
-    var stored = getStoredTheme();
-    if (stored === "light" || stored === "dark") return stored;
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-      return "light";
-    }
-    return "dark";
-  }
-
-  function updateToggleUI(theme) {
-    var isLight = theme === "light";
-    var label = isLight ? "Switch to dark mode" : "Switch to light mode";
-    themeToggleBtns.forEach(function (btn) {
-      btn.setAttribute("aria-label", label);
-      btn.setAttribute("title", label);
-      btn.setAttribute("aria-pressed", isLight ? "true" : "false");
-    });
-    if (themeMeta) {
-      themeMeta.setAttribute("content", isLight ? "#F8FAFC" : "#0A0F1E");
-    }
-  }
-
-  function setTheme(theme, animate) {
-    if (animate) {
-      document.documentElement.classList.add("theme-transition");
-      window.clearTimeout(window.__themeTransitionTimeout);
-      window.__themeTransitionTimeout = window.setTimeout(function () {
-        document.documentElement.classList.remove("theme-transition");
-      }, 350);
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-    updateToggleUI(theme);
-  }
-
-  // Initialize theme from current attribute or preference
-  var initialTheme = document.documentElement.getAttribute("data-theme") || getEffectiveTheme();
-  setTheme(initialTheme, false);
-
-  if (themeToggleBtns.length) {
-    themeToggleBtns.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var current = document.documentElement.getAttribute("data-theme") || "dark";
-        var next = current === "light" ? "dark" : "light";
-        try {
-          localStorage.setItem("forgearc-theme", next);
-        } catch (e) {}
-        setTheme(next, true);
-      });
-    });
-
-    if (window.matchMedia) {
-      var colorSchemeQuery = window.matchMedia("(prefers-color-scheme: light)");
-      var onSystemThemeChange = function (e) {
-        if (!getStoredTheme()) {
-          setTheme(e.matches ? "light" : "dark", true);
-        }
-      };
-      if (colorSchemeQuery.addEventListener) {
-        colorSchemeQuery.addEventListener("change", onSystemThemeChange);
-      } else if (colorSchemeQuery.addListener) {
-        colorSchemeQuery.addListener(onSystemThemeChange);
-      }
-    }
   }
 })();
