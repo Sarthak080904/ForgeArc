@@ -9,6 +9,7 @@
     ["services", "services.html", "Services"],
     ["industries", "industries.html", "Industries"],
     ["portfolio", "portfolio.html", "Portfolio"],
+    ["pricing", "pricing.html", "Pricing"],
     ["about", "about.html", "About"],
     ["contact", "contact.html", "Contact"]
   ];
