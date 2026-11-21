@@ -55,7 +55,8 @@
             '<li><a href="services.html#custom-software">Custom software</a></li>' +
             '<li><a href="services.html#apps">Web &amp; mobile apps</a></li>' +
             '<li><a href="services.html#ai">AI integration</a></li>' +
-            '<li><a href="services.html#digitalization">Digitalization</a></li>' +
+            '<li><a href="tableflow.html">TableFlow POS</a></li>' +
+            '<li><a href="mohalla-mart.html">MohallaMart</a></li>' +
           "</ul></div>" +
           "<div><h4>Contact</h4><ul>" +
             '<li><a href="mailto:contact@forgearc.co.in">contact@forgearc.co.in</a></li>' +
