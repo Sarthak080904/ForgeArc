@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | ForgeArc Technologies</title>
 <meta name="description" content="ForgeArc Technologies is onboarding its first partner projects. See the methodology every case study will follow, and how to become one of our founding clients.">
-<meta name="theme-color" content="#0A0F1E">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://www.forgearc.co.in/portfolio.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Portfolio | ForgeArc Technologies">
@@ -20,174 +20,60 @@
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@600&family=Anek+Latin:wdth,wght@75..125,400..800&family=Mukta:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<script>
-(function(){
-  try {
-    var saved = localStorage.getItem('forgearc-theme');
-    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    document.documentElement.setAttribute('data-theme', theme);
-  } catch(e){}
-})();
-</script>
-<style>
-  .launch-card{ display:flex; flex-direction:column; gap:16px; }
-  .launch-status{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:0.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ember-soft); }
-  .launch-status .dot{ width:7px; height:7px; border-radius:50%; background:var(--ember); }
-</style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body data-page="portfolio">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" id="site-header"></header>
 
-<header class="nav">
+<main id="main">
+<section class="page-head">
   <div class="container">
-    <a href="/" class="nav-brand" aria-label="ForgeArc Technologies — home">
-      <img class="icon-img" src="assets/mark.png" alt="">
-      <img class="word-img" src="assets/wordmark.png" alt="ForgeArc Technologies">
-    </a>
-    <nav class="nav-links" id="nav-links">
-      <a href="/">Home</a>
-      <a href="services.html">Services</a>
-      <a href="industries.html">Industries</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
-      <!-- <a href="pricing.html">Pricing</a> -->
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
-        <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
-      <div class="nav-cta">
-        <a href="contact.html" class="btn btn-primary btn-sm">Start a project</a>
-      </div>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
-    </div>
-  </div>
-</header>
-
-<section class="page-hero">
-  <div class="bg-mesh" aria-hidden="true"></div>
-  <div class="container">
-    <div class="breadcrumb">Home <span class="accent">/</span> Portfolio</div>
+    <p class="label">Portfolio</p>
     <h1>Our first launches are being built right now.</h1>
-    <p>ForgeArc is a new studio — which means our founding clients get senior attention on every project, not the leftover bandwidth of an established agency. Here's exactly how each launch will be documented.</p>
+    <p class="lede">ForgeArc is a new studio, so our founding clients get senior attention on every project, not the leftover bandwidth of an established agency. Here&rsquo;s how each launch will be documented.</p>
+    <dl class="title-block marks"><div><dt>Status</dt><dd>Onboarding founding clients</dd></div><div><dt>In discovery</dt><dd>1 project</dd></div><div><dt>Open slots</dt><dd>2</dd></div><div><dt>Case studies</dt><dd>Published after launch</dd></div></dl>
   </div>
 </section>
 
-<section>
+<section class="section">
   <div class="container">
-    <div class="section-head center reveal">
-      <div class="eyebrow" style="justify-content:center;">Our methodology</div>
-      <h2>Every project we ship follows the same disciplined framework.</h2>
-    </div>
-    <div class="method-flow reveal">
-      <div class="method-step"><div class="dot"></div><div class="t">Problem</div></div>
-      <div class="method-step"><div class="dot"></div><div class="t">Research</div></div>
-      <div class="method-step"><div class="dot"></div><div class="t">Solution</div></div>
-      <div class="method-step"><div class="dot"></div><div class="t">Technology</div></div>
-      <div class="method-step"><div class="dot"></div><div class="t">Screens</div></div>
-      <div class="method-step"><div class="dot"></div><div class="t">Outcome</div></div>
-    </div>
+    <div class="section-head"><div><p class="label">How every case study is written</p><h2>One framework, every project.</h2></div><p>No polished mock-ups of work that doesn&rsquo;t exist. Each case study is published after launch, in this order.</p></div>
+    <ol class="method reveal"><li><b>Problem</b><span>What was slowing the business down</span></li><li><b>Research</b><span>How the business really works today</span></li><li><b>Solution</b><span>What we designed, and why</span></li><li><b>Technology</b><span>What it&rsquo;s built on</span></li><li><b>Screens</b><span>What people actually use</span></li><li><b>Outcome</b><span>What changed after launch</span></li></ol>
   </div>
 </section>
 
-<section class="section-alt">
+<section class="section band">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Launch pipeline</div>
-      <h2>Case studies, presented like product launches.</h2>
-    </div>
-    <div class="grid grid-3">
-      <div class="card launch-card reveal">
-        <div class="launch-status"><span class="dot"></span>In discovery</div>
-        <h3>Founding Client 01</h3>
-        <p>Industry and scope to be announced once the engagement is signed. Reserved for our first partner.</p>
-      </div>
-      <div class="card launch-card reveal d1">
-        <div class="launch-status"><span class="dot"></span>Open slot</div>
-        <h3>Founding Client 02</h3>
-        <p>This slot is open. Founding clients get founder-level attention and transparent, honest pricing.</p>
-      </div>
-      <div class="card launch-card reveal d2">
-        <div class="launch-status"><span class="dot"></span>Open slot</div>
-        <h3>Founding Client 03</h3>
-        <p>This slot is open. Every launch is documented Problem → Research → Solution → Technology → Screens → Outcome.</p>
-      </div>
-    </div>
+    <div class="section-head"><div><p class="label">Launch pipeline</p><h2>Three founding slots.</h2></div></div>
+    <div class="grid g3"><div class="card slot-card reveal"><div class="frame">Case study publishes at launch</div><p class="status on">In discovery</p><h3>Founding client 01</h3><p>Industry and scope will be announced once the engagement is signed.</p></div><div class="card slot-card reveal"><div class="frame">Case study publishes at launch</div><p class="status">Open slot</p><h3>Founding client 02</h3><p>Open now. Founding clients get founder-level attention and honest pricing.</p></div><div class="card slot-card reveal"><div class="frame">Case study publishes at launch</div><p class="status">Open slot</p><h3>Founding client 03</h3><p>Open now. Every launch is documented from problem to outcome.</p></div></div>
   </div>
 </section>
 
-<section>
+<section class="section">
   <div class="container">
-    <div class="coming-soon reveal">
-      <div class="eyebrow" style="justify-content:center;">Case studies</div>
-      <h2>Coming soon.</h2>
-      <p style="max-width:520px;margin:0 auto 24px;">We're currently onboarding our first founding clients. Once a project ships, it's documented here in full.</p>
-      <a href="contact.html" class="btn btn-primary">Become a founding client</a>
-    </div>
+    <div class="section-head"><div><p class="label">Why start early</p><h2>What you get by working with us now.</h2></div></div>
+    <div class="grid g3"><div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></div><h3>Founder-level attention</h3><p>Your project is shaped by the people setting our standards, not handed to a junior queue.</p></div><div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l6-6 4 4 6-8"/><path d="M14 10h6v6"/></svg></div><h3>Honest early pricing</h3><p>We&rsquo;re building our reputation on delivery, not markup.</p></div><div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-6 9 6-9 6-9-6z"/><path d="M3 9v6l9 6 9-6V9"/></svg></div><h3>A real long-term partner</h3><p>Priority support, and a direct hand in shaping how we build.</p></div></div>
   </div>
 </section>
 
-<section class="section-alt">
+<section class="section">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Why be a founding client</div>
-      <h2>What you get by working with us early.</h2>
-    </div>
-    <div class="grid grid-3">
-      <div class="card reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></div>
-        <h3>Founder-level attention</h3>
-        <p>Your project is shaped directly by the people setting ForgeArc's standards — not handed off to a junior queue.</p>
-      </div>
-      <div class="card reveal d1">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 5 5 7-11"/></svg></div>
-        <h3>Transparent, honest pricing</h3>
-        <p>We're building our reputation on delivery, not markup — early engagements are priced accordingly.</p>
-      </div>
-      <div class="card reveal d2">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6-9 6-9-6z"/><path d="M3 9v6l9 6 9-6V9"/></svg></div>
-        <h3>A true long-term partner</h3>
-        <p>Founding clients get first priority on support, and a direct hand in shaping how we build going forward.</p>
-      </div>
+    <div class="cta reveal">
+      <div><h2>Want your project to be our next launch?</h2><p>Tell us what you&rsquo;re building and we&rsquo;ll see if we&rsquo;re the right fit.</p></div>
+      <a class="btn btn-forge" href="contact.html">Start the conversation <span class="arr" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="cta-band reveal">
-      <div class="cta-band-inner">
-        <div>
-          <h2>Want your project to be our next launch?</h2>
-          <p>Tell us what you're building — let's see if we're the right fit.</p>
-        </div>
-        <div class="cta-actions">
-          <a href="contact.html" class="btn btn-primary">Start the conversation</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</main>
 
-<footer class="footer" id="site-footer"></footer>
+<footer class="site-footer" id="site-footer"></footer>
 
+<script src="js/layout.js"></script>
 <script src="js/schema.js"></script>
 <script src="js/script.js"></script>
-<script src="js/footer.js"></script>
 </body>
 </html>

@@ -1,37 +1,36 @@
 # ForgeArc Technologies — Website
 
-Static marketing website for **ForgeArc Technologies Pvt. Ltd.**, built on the "Obsidian Ember" dark design system: near-black navy canvas, ember-orange accent, glassmorphism cards.
+Static marketing website for **ForgeArc Technologies Pvt. Ltd.**, built on a light "Fresh" design system: real photography of Indian shops and workplaces, white pages with soft mint, sky and peach tints, frosted-glass cards and rounded shapes. Brand saffron (`#F2820D`) is used for buttons and highlights, and a fresh green marks progress and "done" states. Type comes from Mumbai's Ek Type foundry: Anek Latin for headings, Mukta for text, Anek Devanagari for the Marathi line in the hero. There is no dark theme.
 
 ## Structure
 
 ```
-index.html       Home — hero, capability marquee, services (bento), problem/solution tabs, process, industries teaser, CTA
-services.html    Detailed breakdown of all 6 service lines
-industries.html  12 industry sectors as icon cards
+index.html       Home — photo hero, saffron "what changes" band, starting-point tabs, services, process, industries, founding-client offer, FAQ, CTA
+services.html    The 6 service lines with photos, plus why ForgeArc
+industries.html  12 industry sectors; each card opens the contact form pre-filled for that industry
 pricing.html     Launch / Scale / Enterprise tiers (Scale featured)
-about.html       Company story, philosophy, mission, vision, values, purpose
-portfolio.html   Methodology + founding-client launch pipeline (pre-launch, no fabricated case studies)
+about.html       Story, philosophy, mission and vision, values, team
+portfolio.html   Case-study framework + founding-client launch pipeline (pre-launch, no fabricated case studies)
 contact.html     Contact form (opens mailto — no backend) + direct contact details
-css/style.css    Full design system: tokens, glass cards, mesh gradients, bento grid, marquee, pricing
-js/script.js     Nav shrink-on-scroll, scroll reveals, count-up stats, hero spotlight/parallax, tabs, contact form
-js/footer.js     Shared footer injected on every page so it stays in sync
-assets/          Logo mark (transparent), favicons, original logo file
+css/style.css    Full design system: tokens and every component
+js/layout.js     Shared header and footer, injected on every page so they stay in sync
+js/script.js     Mobile nav, tabs, scroll reveals, contact form
+js/schema.js     JSON-LD structured data
+assets/          Logo mark, wordmark, favicons
+assets/photos/   Hero, home industry cards, Services (svc-*) and About photos, from Unsplash (free licence, no attribution required)
 ```
 
 ## Theme tokens (css/style.css :root)
 
 | Token | Value | Use |
 |---|---|---|
-| `--bg` | `#0A0F1E` | Base canvas |
-| `--surface` / `--surface-2` | `#141B2E` / `#1E2740` | Cards, glass panels |
-| `--ink` | `#0F1B3D` | Brand deep navy accents |
-| `--ember` | `#F2820D` | CTAs, highlights |
-| `--ember-soft` | `#F5A94A` | Gradients, glows |
-| `--fg` | `#F5F7FA` | Body text |
-| `--muted` | `#8A94A6` | Secondary text |
-| `--border` | `rgba(255,255,255,0.08)` | Hairlines |
-
-Headings use Space Grotesk (600–700, -0.02em tracking); body uses Inter.
+| `--bg` | `#FFFFFF` | Page background |
+| `--bg-alt` / `--bg-sky` / `--peach` | `#F0F8F5` / `#EEF5FD` / `#FFF1E4` | Soft tinted bands and gradients |
+| `--ink` | `#13233F` | Text (brand navy, never a background) |
+| `--muted` | `#596577` | Secondary text |
+| `--saffron` / `--saffron-ink` | `#F2820D` / `#A9520A` | Brand: buttons, highlights; the ink shade for small text |
+| `--mint` / `--mint-ink` | `#12A37F` / `#0A7259` | Fresh accent: icons, ticks, progress; the ink shade for text |
+| `--glass` | `rgba(255,255,255,.72)` | Frosted-glass cards over tinted backgrounds |
 
 ## Running locally
 
@@ -53,9 +52,9 @@ python3 -m http.server 8000
 
 - **Colors / fonts / spacing** — CSS variables at the top of `css/style.css`.
 - **Copy** — every page is plain HTML; edit text directly.
-- **Pricing tiers** — edit the three `.pricing-card` blocks in `pricing.html`.
+- **Pricing tiers** — edit the three `.tier` blocks in `pricing.html`.
 - **Contact form** — currently opens the visitor's email client via `mailto:`. Swap the submit handler in `js/script.js` for a real backend (Formspree, Netlify Forms, your own API) when ready to collect submissions server-side.
-- **Real email/phone** — replace `hello@forgearc.tech` and the placeholder phone number in `js/footer.js` and `contact.html`.
+- **Real email/phone** — replace `hello@forgearc.tech` and the phone number in `js/layout.js` and `contact.html`.
 - **Portfolio** — once you ship a client project, replace the launch-pipeline cards in `portfolio.html` with real case studies following the Problem → Research → Solution → Technology → Screens → Outcome structure already laid out there.
 
 ## Security note
