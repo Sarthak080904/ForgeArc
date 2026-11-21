@@ -11,12 +11,15 @@ industries.html  12 industry sectors; each card opens the contact form pre-fille
 pricing.html     Launch / Scale / Enterprise tiers (Scale featured)
 about.html       Story, philosophy, mission and vision, values, team
 portfolio.html   Case-study framework + founding-client launch pipeline (pre-launch, no fabricated case studies)
+tableflow.html   TableFlow POS product page (restaurant POS) with real app screenshots
+mohalla-mart.html MohallaMart product page (kirana online store) with real app screenshots
 contact.html     Contact form (opens mailto — no backend) + direct contact details
 css/style.css    Full design system: tokens and every component
 js/layout.js     Shared header and footer, injected on every page so they stay in sync
 js/script.js     Mobile nav, tabs, scroll reveals, contact form
 js/schema.js     JSON-LD structured data
 assets/          Logo mark, wordmark, favicons
+assets/products/ Screenshots of TableFlow POS and MohallaMart, taken from the working apps with sample data
 assets/photos/   Hero, home industry cards, Services (svc-*) and About photos, from Unsplash (free licence, no attribution required)
 ```
 
